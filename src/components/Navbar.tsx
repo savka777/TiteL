@@ -27,34 +27,24 @@ const Navbar = () => {
   
             {/* <MobileNav isAuth={!!user} /> */}
   
-            <div className='hidden items-center space-x-4 sm:flex'>
+            <div className='hidden items-center space-x-1 sm:flex'>
               {/* {!user ? ( */}
                 <>
                   <Link
                     href='/pricing'
                     className={buttonVariants({
                       variant: 'ghost',
-                      size: 'sm',
+                      size: 'lg',
                     })}>
                     Pricing
                   </Link>
                   <LoginLink
                     className={buttonVariants({
                       variant: 'ghost',
-                      size: 'sm',
+                      size: 'lg',
                     })}>
                     Sign in
                   </LoginLink>
-                  <RegisterLink
-                    className={buttonVariants({
-                      size: 'sm',
-                    })}>
-                    Get started{' '}
-                    <ArrowRight className='ml-1.5 h-5 w-5' />
-                  </RegisterLink>
-                </>
-              {/* ) : ( */}
-                <>
                   <Link
                     href='/dashboard'
                     className={buttonVariants({
@@ -63,7 +53,16 @@ const Navbar = () => {
                     })}>
                     Dashboard
                   </Link>
-  
+                  <RegisterLink
+                    className={buttonVariants({
+                      size: 'lg',
+                    })}>
+                    Get started{' '}
+                    <ArrowRight className='ml-1.5 h-5 w-5' />
+                  </RegisterLink>
+                </>
+              {/* ) : ( */}
+                <>
                   {/* <UserAccountNav
                     name={
                       !user.given_name || !user.family_name

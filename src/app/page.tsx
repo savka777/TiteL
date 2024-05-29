@@ -20,7 +20,7 @@ export default function Home() {
           <span className='text-blue-600'>SEO</span>{''} in a matter of seconds.
         </h1>
         <p className='mt-5 max-w-prose text-zinc-700 sm:text-lg'>
-          TiteL gives you the ability to optimize your written content to generate SEO friendly titles.
+        TiteL empowers you to optimize your content and create SEO-friendly titles effortlessly.
         </p>
 
         <Link
