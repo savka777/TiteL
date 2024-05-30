@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  const { articleText } = req.body;
+  const { articleText, articleType } = req.body;
 
   if (!articleText) {
     return res.status(400).json({ message: 'Article text is required' });
@@ -16,16 +16,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
-        { role: 'system', content: 'Generate an SEO-friendly title for the following article text:' },
+        { role: 'system', content: `You are an SEO expert. Create an SEO optimized title for the provided ${articleType} that includes relevant keywords, is concise, and engaging for readers. Ensure the title is within 70 characters and effectively summarizes the main topic of the article.` },
         { role: 'user', content: articleText }
       ],
       max_tokens: 50,
     });
 
-    console.log('API Response:', response); // Log the entire response
+    console.log('API Response:', response);
 
     const generatedTitle = response.choices[0]?.message?.content?.trim();
-    console.log('Generated Title:', generatedTitle); // Log the generated title
+    console.log('Generated Title:', generatedTitle);
 
     if (!generatedTitle) {
       return res.status(500).json({ message: 'Failed to generate title' });

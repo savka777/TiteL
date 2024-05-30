@@ -6,10 +6,8 @@ import {
   DialogContent,
   DialogTrigger,
 } from './ui/dialog'
-import { Button } from './ui/button'
-
+import { Paperclip, Cloud, File, Loader2 } from 'lucide-react'
 import Dropzone from 'react-dropzone'
-import { Cloud, File, Loader2 } from 'lucide-react'
 import { Progress } from './ui/progress'
 import { useUploadThing } from '@/lib/uploadthing'
 import { useToast } from './ui/use-toast'
@@ -179,7 +177,12 @@ const UploadButton = ({
       <DialogTrigger
         onClick={() => setIsOpen(true)}
         asChild>
-        <Button>Upload PDF</Button>
+        <button
+          type="button"
+          className="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+        >
+          <Paperclip className="h-5 w-5" />
+        </button>
       </DialogTrigger>
 
       <DialogContent>

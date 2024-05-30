@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className='flex h-20 items-center justify-between border-b border-zinc-200'>
           <Link
             href='/'
-            className='flex z-40 font-semibold'>
+            className='flex z-40 font-semibold' style={{ fontFamily: 'var(--font-primary)' }}>
             <span>Titel.io</span>
           </Link>
 
