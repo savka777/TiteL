@@ -1,12 +1,12 @@
-// import Dashboard from '@/components/Dashboard'
+import Dashboard from '@/components/Dashboard'
 import { db } from '@/db'
-// import { getUserSubscriptionPlan } from '@/lib/stripe'
+import { getUserSubscriptionPlan } from '@/lib/stripe'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { redirect } from 'next/navigation'
 
 const Page = async () => {
-  const { getUser } = await getKindeServerSession()
-  const user = await getUser()
+  const { getUser } = getKindeServerSession()
+  const user = getUser()
 
   if (!user || !user.id) redirect('/auth-callback?origin=dashboard')
 
@@ -17,12 +17,10 @@ const Page = async () => {
   })
 
   if(!dbUser) redirect('/auth-callback?origin=dashboard')
-  
-  return <div>{user.email}</div>
 
-  // const subscriptionPlan = await getUserSubscriptionPlan()
+  const subscriptionPlan = await getUserSubscriptionPlan()
 
-  // return <Dashboard subscriptionPlan={subscriptionPlan} />
+  return <Dashboard subscriptionPlan={subscriptionPlan} />
 }
 
 export default Page
