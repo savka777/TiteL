@@ -16,7 +16,7 @@ export default function Home() {
           Get Your Work Seen With
           <span className='text-blue-600'>TiteL</span>{' '}
         </h1> */}
-        <h1 className='max-w-10xl text-5xl font-bold md:text-7xl lg:text-8xl text-left ' style={{ fontFamily: 'var(--font-primary)' }}>
+        <h1 className='max-w-10xl text-10xl font-bold md:text-10xl lg:text-8xl text-left ' style={{ fontFamily: 'var(--font-primary)' }}>
   Get your work <br></br> seen with {' '}
   <span className='text-blue-600'>TiteL</span>
 </h1>
@@ -37,6 +37,63 @@ export default function Home() {
           <ArrowRight className='ml-2 h-5 w-5' />
         </Link>
       </MaxWidthWrapper>
+
+            {/* Feature section */}
+      <div className='mx-auto mb-0 mt-16 max-w-5xl sm:mt-56'>
+        {/* steps */}
+        <ol className='my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0'>
+          {/* item 1 */}
+          <li className='md:flex-1'>
+            <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
+              <span className='text-sm font-medium text-blue-600'>
+                Step 1
+              </span>
+              <span className='text-xl font-semibold'>
+                Sign up for an account
+              </span>
+              <span className='mt-2 text-zinc-700'>
+                Either starting out with a free plan or
+                choose our{' '}
+                <Link
+                  href='/pricing'
+                  className='text-blue-700 underline underline-offset-2'>
+                  pro plan
+                </Link>
+                .
+              </span>
+            </div>
+          </li>
+
+          {/* item 2  */}
+          <li className='md:flex-1'>
+            <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
+              <span className='text-sm font-medium text-blue-600'>
+                Step 2
+              </span>
+              <span className='text-xl font-semibold'>
+                Select your style of text
+              </span>
+              <span className='mt-2 text-zinc-700'>
+                Choose between news article, blog post or soundbites.
+              </span>
+            </div>
+          </li>
+          
+          <li className='md:flex-1'>
+            <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
+              <span className='text-sm font-medium text-blue-600'>
+                Step 3
+              </span>
+              <span className='text-xl font-semibold'>
+                Start generating titles
+              </span>
+              <span className='mt-2 text-zinc-700'>
+                Upload or paste in your text. It&apos;s that simple. Try out TiteL today.
+              </span>
+            </div>
+          </li>
+        </ol>
+      </div>
 
       {/* value proposition section */}
       <div>
@@ -60,8 +117,8 @@ export default function Home() {
                   <Image
                     src='/TitleDemoPhoto.png'
                     alt='product preview'
-                    width={1364}
-                    height={866}
+                    width={1200}
+                    height={800}
                     quality={100}
                     className='rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
                   />
@@ -84,72 +141,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Feature section */}
-      <div className='mx-auto mb-32 mt-32 max-w-5xl sm:mt-56'>
-        <div className='mb-12 px-6 lg:px-8'>
-          <div className='mx-auto max-w-2xl sm:text-center'>
-            <h2 className='mt-2 font-bold text-4xl text-gray-900 sm:text-5xl'>
-              Start generating now
-            </h2>
-            <p className='mt-4 text-lg text-gray-600'>
-              Generating titles for articles has never been easier
-            </p>
-          </div>
-        </div>
-
-        {/* steps */}
-        <ol className='my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0'>
-          <li className='md:flex-1'>
-            <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
-                Step 1
-              </span>
-              <span className='text-xl font-semibold'>
-                Sign up for an account
-              </span>
-              <span className='mt-2 text-zinc-700'>
-                Either starting out with a free plan or
-                choose our{' '}
-                <Link
-                  href='/pricing'
-                  className='text-blue-700 underline underline-offset-2'>
-                  pro plan
-                </Link>
-                .
-              </span>
-            </div>
-          </li>
-          
-          <li className='md:flex-1'>
-            <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
-                Step 2
-              </span>
-              <span className='text-xl font-semibold'>
-                Start generating titles
-              </span>
-              <span className='mt-2 text-zinc-700'>
-                It&apos;s that simple. Try out TiteL today.
-              </span>
-            </div>
-          </li>
-        </ol>
-
-        <div className='mx-auto max-w-6xl px-6 lg:px-8'>
-          <div className='mt-16 flow-root sm:mt-24'>
-            <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
-              <Image
-                src='/'
-                alt='uploading preview'
-                width={1419}
-                height={732}
-                quality={100}
-                className='rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+    
     </>
   )
 }

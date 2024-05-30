@@ -1,27 +1,27 @@
-import Link from 'next/link'
-import MaxWidthWrapper from './MaxWidthWrapper'
-import { buttonVariants } from './ui/button'
+import Link from 'next/link';
+import Image from 'next/image';
+import MaxWidthWrapper from './MaxWidthWrapper';
+import { buttonVariants } from './ui/button';
 import {
   LoginLink,
   RegisterLink,
   getKindeServerSession,
-} from '@kinde-oss/kinde-auth-nextjs/server'
-import { ArrowRight } from 'lucide-react'
-import UserAccountNav from './UserAccountNav'
-import MobileNav from './MobileNav'
+} from '@kinde-oss/kinde-auth-nextjs/server';
+import { ArrowRight } from 'lucide-react';
+import UserAccountNav from './UserAccountNav';
+import MobileNav from './MobileNav';
 
 const Navbar = () => {
-  const { getUser } = getKindeServerSession()
-  const user = getUser()
+  const { getUser } = getKindeServerSession();
+  const user = getUser();
 
   return (
     <nav className='sticky h-20 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all'>
       <MaxWidthWrapper>
         <div className='flex h-20 items-center justify-between border-b border-zinc-200'>
-          <Link
-            href='/'
-            className='flex z-40 font-semibold' style={{ fontFamily: 'var(--font-primary)' }}>
-            <span>Titel.io</span>
+          <Link href='/' className='flex items-center z-40 font-semibold' style={{ fontFamily: 'var(--font-primary)' }}>
+            <Image src='/text-box.png' alt='Logo' width={40} height={40} className='mr-2' />
+            <span>TiteL.io</span>
           </Link>
 
           <MobileNav isAuth={!!user} />
@@ -78,7 +78,7 @@ const Navbar = () => {
         </div>
       </MaxWidthWrapper>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
