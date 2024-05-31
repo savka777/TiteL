@@ -11,7 +11,7 @@ interface PageProps {
 
 const Dashboard = ({ subscriptionPlan }: PageProps) => {
   const [articleText, setArticleText] = useState('')
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null)
+  // const [uploadedFile, setUploadedFile] = useState<File | null>(null)
   const [generatedTitle, setGeneratedTitle] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 

@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o',
       messages: [
         { role: 'system', content: `You are an SEO expert. Create an SEO optimized title for the provided ${articleType} that includes relevant keywords, is concise, and engaging for readers. Ensure the title is within 60 characters and effectively summarizes the main topic of the article.` },
         { role: 'user', content: articleText }

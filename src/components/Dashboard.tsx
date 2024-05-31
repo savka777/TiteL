@@ -16,6 +16,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
   const [articleType, setArticleType] = useState('Blog post');
+  const [displayArticleType, setDisplayArticleType] = useState('Blog post'); // New state for displaying article type
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
 
       if (response.ok) {
         setGeneratedTitle(data.title);
+        setDisplayArticleType(articleType); // Set the display article type to the current type
       } else {
         console.error('Error generating title:', data.message);
       }
@@ -79,7 +81,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
             {isDropdownOpen && (
               <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                 <div className="py-1" role="none">
-                  {['News article', 'Blog Post', 'Soundbite'].map((type) => (
+                  {['News Article', 'Blog Post', 'Soundbite'].map((type) => (
                     <button
                       key={type}
                       onClick={() => {
@@ -101,7 +103,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           placeholder='Enter your text here...'
           value={articleText}
           onChange={(e) => setArticleText(e.target.value)}
-          rows={15}
+          rows={10}
         />
         <div className='flex justify-between items-center'>
           <button
@@ -116,7 +118,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
       </div>
       {generatedTitle && (
         <div className="mt-8 p-5 border rounded-md">
-          <h2 className="text-xl font-semibold">{articleType} title</h2>
+          <h2 className="text-xl font-semibold">{displayArticleType} Title</h2>
           <p className="mt-2">{generatedTitle}</p>
         </div>
       )}

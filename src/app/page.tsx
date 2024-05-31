@@ -7,7 +7,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <>
-      <MaxWidthWrapper className='mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center'>
+      <MaxWidthWrapper className='mb-12 mt-20 sm:mt-35 flex flex-col items-center justify-center text-center'>
         <div className=''>
           {/* <p className='text-sm font-semibold text-gray-700'>
           </p> */}
@@ -16,7 +16,7 @@ export default function Home() {
           Get Your Work Seen With
           <span className='text-blue-600'>TiteL</span>{' '}
         </h1> */}
-        <h1 className='max-w-10xl text-10xl font-bold md:text-10xl lg:text-8xl text-left ' style={{ fontFamily: 'var(--font-primary)' }}>
+        <h1 className='max-w-10xl text-10xl font-bold md:text-10xl lg:text-6xl ' style={{ fontFamily: 'var(--font-primary)' }}>
   Get your work <br></br> seen with {' '}
   <span className='text-blue-600'>TiteL</span>
 </h1>
@@ -39,7 +39,7 @@ export default function Home() {
       </MaxWidthWrapper>
 
             {/* Feature section */}
-      <div className='mx-auto mb-0 mt-16 max-w-5xl sm:mt-56'>
+      <div className='mx-auto mb-0 mt-16 max-w-5xl sm:mt-36'>
         {/* steps */}
         <ol className='my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0'>
           {/* item 1 */}
@@ -74,7 +74,7 @@ export default function Home() {
                 Select your style of text
               </span>
               <span className='mt-2 text-zinc-700'>
-                Choose between news article, blog post or soundbites.
+                Choose between news article, blog post or soundbites
               </span>
             </div>
           </li>
