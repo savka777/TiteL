@@ -116,7 +116,7 @@ export default function Home() {
                   <Image
                     src='/TitleDemoPhoto.png'
                     alt='product preview'
-                    width={1000}
+                    width={1200}
                     height={600}
                     quality={100}
                     className='rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
