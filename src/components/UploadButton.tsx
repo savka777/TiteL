@@ -1,116 +1,120 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
+import { useState } from 'react';
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
-} from './ui/dialog'
-import { Paperclip, Cloud, File, Loader2 } from 'lucide-react'
-import Dropzone from 'react-dropzone'
-import { Progress } from './ui/progress'
-import { useUploadThing } from '@/lib/uploadthing'
-import { useToast } from './ui/use-toast'
-import { trpc } from '@/app/_trpc/client'
-import { useRouter } from 'next/navigation'
+} from './ui/dialog';
+import { Paperclip, File, Loader2 } from 'lucide-react';
+import Dropzone, { Accept } from 'react-dropzone';
+import { Progress } from './ui/progress';
+import { useUploadThing } from '@/lib/uploadthing';
+import { useToast } from './ui/use-toast';
+import { trpc } from '@/app/_trpc/client';
+import { useRouter } from 'next/navigation';
 
 const UploadDropzone = ({
   isSubscribed,
 }: {
   isSubscribed: boolean
 }) => {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [isUploading, setIsUploading] =
-    useState<boolean>(false)
-  const [uploadProgress, setUploadProgress] =
-    useState<number>(0)
-  const { toast } = useToast()
+  const [isUploading, setIsUploading] = useState<boolean>(false);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
+  const { toast } = useToast();
 
   const { startUpload } = useUploadThing(
     isSubscribed ? 'proPlanUploader' : 'freePlanUploader'
-  )
+  );
 
-  const { mutate: startPolling } = trpc.getFile.useMutation(
-    {
-      onSuccess: (file) => {
-        router.push(`/dashboard/${file.id}`)
-      },
-      retry: true,
-      retryDelay: 500,
-    }
-  )
+  const { mutate: startPolling } = trpc.getFile.useMutation({
+    onSuccess: (file) => {
+      router.push(`/dashboard/${file.id}`);
+    },
+    retry: true,
+    retryDelay: 500,
+  });
 
   const startSimulatedProgress = () => {
-    setUploadProgress(0)
+    setUploadProgress(0);
 
     const interval = setInterval(() => {
       setUploadProgress((prevProgress) => {
         if (prevProgress >= 95) {
-          clearInterval(interval)
-          return prevProgress
+          clearInterval(interval);
+          return prevProgress;
         }
-        return prevProgress + 5
-      })
-    }, 500)
+        return prevProgress + 5;
+      });
+    }, 500);
 
-    return interval
-  }
+    return interval;
+  };
+
+  const accept: Accept = {
+    'text/plain': ['.txt'],
+    'application/msword': ['.doc'],
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
+    'application/pdf': ['.pdf'],
+  };
 
   return (
     <Dropzone
       multiple={false}
+      accept={accept}
       onDrop={async (acceptedFile) => {
-        setIsUploading(true)
+        setIsUploading(true);
 
-        const progressInterval = startSimulatedProgress()
+        const progressInterval = startSimulatedProgress();
 
         // handle file uploading
-        const res = await startUpload(acceptedFile)
+        const res = await startUpload(acceptedFile);
 
         if (!res) {
           return toast({
             title: 'Something went wrong',
             description: 'Please try again later',
             variant: 'destructive',
-          })
+          });
         }
 
-        const [fileResponse] = res
+        const [fileResponse] = res;
 
-        const key = fileResponse?.key
+        const key = fileResponse?.key;
 
         if (!key) {
           return toast({
             title: 'Something went wrong',
             description: 'Please try again later',
             variant: 'destructive',
-          })
+          });
         }
 
-        clearInterval(progressInterval)
-        setUploadProgress(100)
+        clearInterval(progressInterval);
+        setUploadProgress(100);
 
-        startPolling({ key })
-      }}>
+        startPolling({ key });
+      }}
+    >
       {({ getRootProps, getInputProps, acceptedFiles }) => (
         <div
           {...getRootProps()}
-          className='border h-64 m-4 border-dashed border-gray-300 rounded-lg'>
+          className='border h-64 m-4 border-dashed border-gray-300 rounded-lg'
+        >
           <div className='flex items-center justify-center h-full w-full'>
             <label
               htmlFor='dropzone-file'
-              className='flex flex-col items-center justify-center w-full h-full rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100'>
+              className='flex flex-col items-center justify-center w-full h-full rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100'
+            >
               <div className='flex flex-col items-center justify-center pt-5 pb-6'>
-                <Cloud className='h-6 w-6 text-zinc-500 mb-2' />
+                <File className='h-6 w-6 text-zinc-500 mb-2' />
                 <p className='mb-2 text-sm text-zinc-700'>
-                  <span className='font-semibold'>
-                    Click to upload
-                  </span>{' '}
-                  or drag and drop
+                  <span className='font-semibold'>Click to upload</span> or drag and drop
                 </p>
                 <p className='text-xs text-zinc-500'>
-                  PDF (up to {isSubscribed ? "16" : "4"}MB)
+                  Text (up to {isSubscribed ? '16' : '4'}MB)
                 </p>
               </div>
 
@@ -129,9 +133,7 @@ const UploadDropzone = ({
                 <div className='w-full mt-4 max-w-xs mx-auto'>
                   <Progress
                     indicatorColor={
-                      uploadProgress === 100
-                        ? 'bg-green-500'
-                        : ''
+                      uploadProgress === 100 ? 'bg-green-500' : ''
                     }
                     value={uploadProgress}
                     className='h-1 w-full bg-zinc-200'
@@ -156,27 +158,29 @@ const UploadDropzone = ({
         </div>
       )}
     </Dropzone>
-  )
-}
+  );
+};
 
 const UploadButton = ({
   isSubscribed,
 }: {
   isSubscribed: boolean
 }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <Dialog
       open={isOpen}
       onOpenChange={(v) => {
         if (!v) {
-          setIsOpen(v)
+          setIsOpen(v);
         }
-      }}>
+      }}
+    >
       <DialogTrigger
         onClick={() => setIsOpen(true)}
-        asChild>
+        asChild
+      >
         <button
           type="button"
           className="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -189,7 +193,7 @@ const UploadButton = ({
         <UploadDropzone isSubscribed={isSubscribed} />
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
 
-export default UploadButton
+export default UploadButton;
