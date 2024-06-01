@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
-import { Button } from './ui/button';
-import UploadButton from './UploadButton';
+// import { Button } from './ui/button';
+// import UploadButton from './UploadButton';
 import { getUserSubscriptionPlan } from '@/lib/stripe';
 
 interface PageProps {
@@ -79,7 +79,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
             {isDropdownOpen && (
               <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                 <div className="py-1" role="none">
-                  {['News article', 'Blog Post', 'Soundbite'].map((type) => (
+                  {['News article', 'Blog Post', 'Substack'].map((type) => (
                     <button
                       key={type}
                       onClick={() => {
@@ -101,7 +101,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           placeholder='Enter your text here...'
           value={articleText}
           onChange={(e) => setArticleText(e.target.value)}
-          rows={15}
+          rows={10}
         />
         <div className='flex justify-between items-center'>
           <button
@@ -111,7 +111,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           >
             {isLoading ? <Loader2 className='h-4 w-4 animate-spin' /> : 'Generate Title'}
           </button>
-          <UploadButton isSubscribed={subscriptionPlan.isSubscribed} />
+          {/* <UploadButton isSubscribed={subscriptionPlan.isSubscribed} /> */}
         </div>
       </div>
       {generatedTitle && (

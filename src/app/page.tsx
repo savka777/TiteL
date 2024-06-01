@@ -7,7 +7,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <>
-      <MaxWidthWrapper className='mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center'>
+      <MaxWidthWrapper className='mb-12 mt-28 sm:mt-30 flex flex-col items-center justify-center text-center'>
         <div className=''>
           {/* <p className='text-sm font-semibold text-gray-700'>
           </p> */}
@@ -16,14 +16,14 @@ export default function Home() {
           Get Your Work Seen With
           <span className='text-blue-600'>TiteL</span>{' '}
         </h1> */}
-        <h1 className='max-w-10xl text-10xl font-bold md:text-10xl lg:text-8xl text-left ' style={{ fontFamily: 'var(--font-primary)' }}>
+        <h1 className='max-w-10xl text-10xl font-bold md:text-10xl lg:text-7xl text-left ' style={{ fontFamily: 'var(--font-primary)' }}>
   Get your work <br></br> seen with {' '}
   <span className='text-blue-600'>TiteL</span>
 </h1>
 
         <p className='mt-5 max-w-prose text-zinc-700 lg:text-lg'>
           TiteL.io allows you improve your contents visibilty by generating
-          SEO friendly titles for your contents.
+          SEO friendly titles for your content.
         </p>
 
         <Link
@@ -39,7 +39,7 @@ export default function Home() {
       </MaxWidthWrapper>
 
             {/* Feature section */}
-      <div className='mx-auto mb-0 mt-16 max-w-5xl sm:mt-56'>
+      <div className='mx-auto mb-0 mt-16 max-w-5xl sm:mt-35'>
         {/* steps */}
         <ol className='my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0'>
           {/* item 1 */}
@@ -52,14 +52,13 @@ export default function Home() {
                 Sign up for an account
               </span>
               <span className='mt-2 text-zinc-700'>
-                Either starting out with a free plan or
-                choose our{' '}
-                <Link
+                Takes less than a minute!{' '}
+                {/* <Link
                   href='/pricing'
                   className='text-blue-700 underline underline-offset-2'>
                   pro plan
-                </Link>
-                .
+                </Link> */}
+                
               </span>
             </div>
           </li>
@@ -73,8 +72,8 @@ export default function Home() {
               <span className='text-xl font-semibold'>
                 Select your style of text
               </span>
-              <span className='mt-2 text-zinc-700'>
-                Choose between news article, blog post or soundbites.
+              <span className='mt-2 text-zinc-700'>+
+                Choose between News Article, Blog post or Substack .
               </span>
             </div>
           </li>
@@ -88,7 +87,7 @@ export default function Home() {
                 Start generating titles
               </span>
               <span className='mt-2 text-zinc-700'>
-                Upload or paste in your text. It&apos;s that simple. Try out TiteL today.
+                Paste in your text. It&apos;s that simple. Try out TiteL today.
               </span>
             </div>
           </li>
@@ -117,8 +116,8 @@ export default function Home() {
                   <Image
                     src='/TitleDemoPhoto.png'
                     alt='product preview'
-                    width={1200}
-                    height={800}
+                    width={1000}
+                    height={600}
                     quality={100}
                     className='rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
                   />
