@@ -1,9 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Loader2 } from 'lucide-react';
-// import { Button } from './ui/button';
-// import UploadButton from './UploadButton';
+import { Loader2, Clipboard } from 'lucide-react'; // Import the Clipboard icon
 import { getUserSubscriptionPlan } from '@/lib/stripe';
 
 interface PageProps {
@@ -16,7 +14,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
   const [articleType, setArticleType] = useState('Blog post');
-  const [displayArticleType, setDisplayArticleType] = useState('Blog post'); // New state for displaying article type
+  const [displayArticleType, setDisplayArticleType] = useState('Blog post');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -32,7 +30,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ articleText, articleType }), // Include articleType in the request body
+        body: JSON.stringify({ articleText, articleType }),
       });
 
       const data = await response.json();
@@ -40,7 +38,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
 
       if (response.ok) {
         setGeneratedTitle(data.title);
-        setDisplayArticleType(articleType); // Set the display article type to the current type
+        setDisplayArticleType(articleType);
       } else {
         console.error('Error generating title:', data.message);
       }
@@ -51,13 +49,21 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
     }
   };
 
+  const handleCopyToClipboard = () => {
+    navigator.clipboard.writeText(generatedTitle).then(() => {
+      alert('Title copied to clipboard!');
+    }).catch((err) => {
+      console.error('Failed to copy the text to clipboard', err);
+    });
+  };
+
   if (!isHydrated) {
     return null;
   }
 
   return (
     <main className='mx-auto max-w-4xl md:p-10'>
-      <h1 className='mb-5 text-center font-bold text-4xl text-gray-900' style={{ fontFamily: 'var(--font-primary)' }} >
+      <h1 className='mb-5 text-center font-bold text-4xl text-gray-900' style={{ fontFamily: 'var(--font-primary)' }}>
         Dashboard
       </h1>
       <div className='mb-8 p-5 border rounded-md'>
@@ -104,7 +110,6 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           value={articleText}
           onChange={(e) => setArticleText(e.target.value)}
           rows={10}
-          rows={10}
         />
         <div className='flex justify-between items-center'>
           <button
@@ -114,12 +119,19 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           >
             {isLoading ? <Loader2 className='h-4 w-4 animate-spin' /> : 'Generate Title'}
           </button>
-          {/* <UploadButton isSubscribed={subscriptionPlan.isSubscribed} /> */}
         </div>
       </div>
       {generatedTitle && (
         <div className="mt-8 p-5 border rounded-md">
-          <h2 className="text-xl font-semibold">{displayArticleType} Title</h2>
+          <div className='flex justify-between items-center'>
+            <h2 className="text-xl font-semibold">{displayArticleType} Title</h2>
+            <button
+              className="p-2 border border-gray-300 rounded-md shadow-sm flex items-center justify-center bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+              onClick={handleCopyToClipboard}
+            >
+              <Clipboard className='h-5 w-5' />
+            </button>
+          </div>
           <p className="mt-2">{generatedTitle}</p>
         </div>
       )}
