@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Loader2, Clipboard } from 'lucide-react'; // Import the Clipboard icon
+import { Loader2, Clipboard, Coffee } from 'lucide-react'; // Import the Coffee icon
 import { getUserSubscriptionPlan } from '@/lib/stripe';
 
 interface PageProps {
@@ -135,6 +135,14 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           <p className="mt-2">{generatedTitle}</p>
         </div>
       )}
+      <a
+        href="https://www.buymeacoffee.com/TiteL"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-4 right-4 p-3 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-600 transition-all"
+      >
+        <Coffee className="h-6 w-6 text-white" />
+      </a>
     </main>
   );
 };
