@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         { role: 'system', content: `You are an SEO expert. Create an SEO optimized title for the provided ${articleType} that includes relevant keywords, is concise, and engaging for readers. Ensure the title is within 60 characters and effectively summarizes the main topic of the article.` },
         { role: 'user', content: articleText }
       ],
-      max_tokens: 50,
+      max_tokens: 100,
     });
 
     console.log('API Response:', response);

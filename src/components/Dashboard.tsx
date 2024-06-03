@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Loader2, Clipboard, Coffee } from 'lucide-react'; // Import the Coffee icon
+import { Loader2, Clipboard, Coffee } from 'lucide-react';
 import { getUserSubscriptionPlan } from '@/lib/stripe';
 
 interface PageProps {
@@ -126,7 +126,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           <div className='flex justify-between items-center'>
             <h2 className="text-xl font-semibold">{displayArticleType} Title</h2>
             <button
-              className="p-2 border border-gray-300 rounded-md shadow-sm flex items-center justify-center bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+              className="p-2 ml-4 border border-gray-300 rounded-md shadow-sm flex items-center justify-center bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
               onClick={handleCopyToClipboard}
             >
               <Clipboard className='h-5 w-5' />
@@ -136,7 +136,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
         </div>
       )}
       <a
-        href="https://www.buymeacoffee.com/TiteL"
+        href="https://www.buymeacoffee.com/yourusername"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 p-3 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-600 transition-all"
