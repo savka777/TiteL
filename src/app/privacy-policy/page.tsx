@@ -14,6 +14,7 @@ const PrivacyPolicy = () => {
         <p className='text-gray-700 mb-4'>
         </p>
         <ul className='list-disc list-inside text-gray-700 mb-4 text-left mx-auto max-w-3xl'>
+        
           <li>Personal Information: Such as your name, email address.</li>
           <li>Usage Data: Information about your interactions with our website, such as pages visited, time spent on the site, and links clicked.</li>
           <li>Cookies: We use cookies and similar tracking technologies to enhance your experience on our website.</li>
@@ -37,14 +38,14 @@ const PrivacyPolicy = () => {
         </ul>
 
         <h2 className='text-2xl font-semibold text-gray-900 mb-4'>Data Security</h2>
-        <p className='text-gray-700 mb-4'>
-          We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure.
-        </p>
+        <ul className='list-disc list-inside text-gray-700 mb-4 text-left mx-auto max-w-3xl'>
+          <li>We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure.</li>
+        </ul>
 
         <h2 className='text-2xl font-semibold text-gray-900 mb-4'>Changes to This Policy</h2>
-        <p className='text-gray-700 mb-4'>
-          We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on our website.
-        </p>
+        <ul className='list-disc list-inside text-gray-700 mb-4 text-left mx-auto max-w-3xl'>
+          <li>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on our website.</li>
+        </ul>
 
         <h2 className='text-2xl font-semibold text-gray-900 mb-4'>Contact Us</h2>
         <p className='text-gray-700 mb-4'>
