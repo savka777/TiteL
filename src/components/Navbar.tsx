@@ -29,14 +29,14 @@ const Navbar = () => {
           <div className='hidden items-center space-x-4 lg:flex'>
             {!user ? (
               <>
-                {/* <Link
-                  href='/pricing'
+                <Link
+                  href='/https://www.buymeacoffee.com/titel'
                   className={buttonVariants({
                     variant: 'ghost',
                     size: 'lg',
                   })}>
-                  Pricing
-                </Link> */}
+                  Buy Us a Coffee
+                </Link>
                 <LoginLink
                   className={buttonVariants({
                     variant: 'ghost',

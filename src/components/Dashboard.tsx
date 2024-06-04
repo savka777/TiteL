@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Loader2, Clipboard, Coffee } from 'lucide-react';
 import { getUserSubscriptionPlan } from '@/lib/stripe';
+import Script from 'next/script';
 
 interface PageProps {
   subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>;
@@ -13,8 +14,8 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
   const [generatedTitle, setGeneratedTitle] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
-  const [articleType, setArticleType] = useState('Blog post');
-  const [displayArticleType, setDisplayArticleType] = useState('Blog post');
+  const [articleType, setArticleType] = useState('News Article');
+  const [displayArticleType, setDisplayArticleType] = useState('News Article');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -87,7 +88,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
             {isDropdownOpen && (
               <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                 <div className="py-1" role="none">
-                  {['News article', 'Blog Post', 'Substack'].map((type) => (
+                  {['News Article', 'Blog Post', 'Substack'].map((type) => (
                     <button
                       key={type}
                       onClick={() => {
@@ -136,7 +137,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
         </div>
       )}
       <a
-        href="https://www.buymeacoffee.com/yourusername"
+        href="https://www.buymeacoffee.com/titel"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 p-3 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-600 transition-all"
