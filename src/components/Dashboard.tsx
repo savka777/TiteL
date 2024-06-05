@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Loader2, Clipboard, Coffee } from 'lucide-react';
+import { Loader2, Clipboard, Check, Coffee } from 'lucide-react'; // Import Check icon
 import { getUserSubscriptionPlan } from '@/lib/stripe';
 import Script from 'next/script';
 
@@ -17,6 +17,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
   const [articleType, setArticleType] = useState('News Article');
   const [displayArticleType, setDisplayArticleType] = useState('News Article');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCopied, setIsCopied] = useState(false); // New state for tracking if text is copied
 
   useEffect(() => {
     setIsHydrated(true);
@@ -40,6 +41,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
       if (response.ok) {
         setGeneratedTitle(data.title);
         setDisplayArticleType(articleType);
+        setIsCopied(false); // Reset copied state when a new title is generated
       } else {
         console.error('Error generating title:', data.message);
       }
@@ -52,7 +54,8 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
 
   const handleCopyToClipboard = () => {
     navigator.clipboard.writeText(generatedTitle).then(() => {
-      alert('Title copied to clipboard!');
+      setIsCopied(true); // Update copied state to true
+      setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
     }).catch((err) => {
       console.error('Failed to copy the text to clipboard', err);
     });
@@ -130,7 +133,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
               className="p-2 ml-4 border border-gray-300 rounded-md shadow-sm flex items-center justify-center bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
               onClick={handleCopyToClipboard}
             >
-              <Clipboard className='h-5 w-5' />
+              {isCopied ? <Check className='h-5 w-5 text-blue-500' /> : <Clipboard className='h-5 w-5' />}
             </button>
           </div>
           <p className="mt-2">{generatedTitle}</p>
