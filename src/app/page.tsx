@@ -170,7 +170,7 @@ export default function Home() {
        <div className='mx-auto mb-24 mt-16 max-w-5xl sm:mt-35 text-center'>
         <h2 className='text-2xl font-bold text-gray-900'>Rules we follow for Effective SEO Titles</h2>
         <p className='mt-2 text-zinc-700 lg:text-lg'>
-          We create SEO-friendly titles that attract clicks and boost your rankings.
+          We create SEO-optimized titles that attract clicks and boost your rankings.
         </p>
         <div className='mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
           <div className='flex flex-col items-center'>

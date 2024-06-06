@@ -8,7 +8,7 @@ const Footer = () => {
     
     <footer className="bg-gray-100 text-gray-700 py-3 mt-5">
       <MaxWidthWrapper>
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-1">
         <div className="flex justify-between items-center">
           <div>
           <Link href='/' className='flex items-center z-40 font-semibold'

@@ -18,12 +18,19 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
   const [displayArticleType, setDisplayArticleType] = useState('News Article');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isCopied, setIsCopied] = useState(false); // New state for tracking if text is copied
+  const [wordCount, setWordCount] = useState(0); // New state for tracking word count
 
   useEffect(() => {
     setIsHydrated(true);
   }, []);
 
   const handleGenerateTitle = async () => {
+    const words = articleText.trim().split(/\s+/).length;
+    if (words > 1000) {
+      alert('Input exceeds 1000 words. Please shorten your text.');
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -61,13 +68,19 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
     });
   };
 
+  const handleTextChange = (e: { target: { value: any; }; }) => {
+    const text = e.target.value;
+    setArticleText(text);
+    setWordCount(text.trim().split(/\s+/).length); // Update word count
+  };
+
   if (!isHydrated) {
     return null;
   }
 
   return (
     <main className='mx-auto max-w-4xl md:p-10'>
-      <h1 className='mb-5 text-center font-bold text-4xl text-gray-900'>
+      <h1 className='mb-5 text-center font-semi-bold text-4xl text-gray-900' >
         Dashboard
       </h1>
       <div className='mb-8 p-5 border rounded-md'>
@@ -109,26 +122,27 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           </div>
         </div>
         <textarea
-          className='w-full p-5 border border-gray-300 rounded-md shadow-sm focus:ring-digital-blue focus:border-blue-500 mb-4'
+          className='w-full p-5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-4'
           placeholder='Enter your text here...'
           value={articleText}
-          onChange={(e) => setArticleText(e.target.value)}
+          onChange={handleTextChange} // Updated to handle text change
           rows={10}
         />
         <div className='flex justify-between items-center'>
           <button
-            className='px-4 py-2 bg-digital-blue text-white rounded-md flex items-center justify-center'
+            className='px-4 py-2 bg-digital-blue-500 text-white rounded-md flex items-center justify-center'
             onClick={handleGenerateTitle}
             disabled={isLoading}
           >
             {isLoading ? <Loader2 className='h-4 w-4 animate-spin' /> : 'Generate Title'}
           </button>
+          <span className="text-sm text-gray-600">{wordCount}/1000 words</span> {/* Display word count */}
         </div>
       </div>
       {generatedTitle && (
         <div className="mt-8 p-5 border rounded-md">
           <div className='flex justify-between items-center'>
-            <p className="text-sm font-semibold">{displayArticleType} Title</p>
+            <h1 className="text-xl font-bold">{generatedTitle}</h1>
             <button
               className="p-2 ml-4 border border-gray-300 rounded-md shadow-sm flex items-center justify-center bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
               onClick={handleCopyToClipboard}
@@ -136,7 +150,6 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
               {isCopied ? <Check className='h-5 w-5 text-digital-blue' /> : <Clipboard className='h-5 w-5' />}
             </button>
           </div>
-          <h1 className="text-xl font-bold mt-2">{generatedTitle}</h1>
         </div>
       )}
       <a
