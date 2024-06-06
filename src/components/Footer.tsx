@@ -11,9 +11,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <div>
-          <Link href='/' className='flex items-center z-40 font-semibold' style={{ fontFamily: 'var(--font-primary)' }}>
-            <Image src='/text-box.png' alt='Logo' width={40} height={40} className='mr-2' />
-            <span>© 2024 All rights reserved.</span>
+          <Link href='/' className='flex items-center z-40 font-semibold'
+          >
+            {/* <Image src='/text-box.png' alt='Logo' width={40} height={40} className='mr-2' /> */}
+            <p className="text-sm hover:underline">© 2024 All rights reserved.</p>
+            <span></span>
           </Link>
             {/* <p className="text-sm">© 2023 TiteL. All rights reserved.</p> */}
           </div>

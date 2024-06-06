@@ -17,9 +17,9 @@ export default function Home() {
           Get Your Work Seen With
           <span className='text-blue-600'>TiteL</span>{' '}
         </h1> */}
-        <h1 className='max-w-10xl text-10xl font-bold md:text-10xl lg:text-7xl text-left ' style={{ fontFamily: 'var(--font-primary)' }}>
+        <h1 className='max-w-10xl text-10xl font-bold md:text-10xl lg:text-7xl text-left '>
   Get your work <br></br> seen with {' '}
-  <span className='text-blue-600'>TiteL</span>
+  <span className='text-digital-blue'>TiteL</span>
 </h1>
 
         <p className='mt-5 max-w-prose text-zinc-700 lg:text-lg'>
@@ -46,7 +46,7 @@ export default function Home() {
           {/* item 1 */}
           <li className='md:flex-1'>
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
+              <span className='text-sm font-medium text-digital-blue'>
                 Step 1
               </span>
               <span className='text-xl font-semibold'>
@@ -67,7 +67,7 @@ export default function Home() {
           {/* item 2  */}
           <li className='md:flex-1'>
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
+              <span className='text-sm font-medium text-digital-blue'>
                 Step 2
               </span>
               <span className='text-xl font-semibold'>
@@ -81,7 +81,7 @@ export default function Home() {
           
           <li className='md:flex-1'>
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
+              <span className='text-sm font-medium text-digital-blue'>
                 Step 3
               </span>
               <span className='text-xl font-semibold'>
@@ -113,14 +113,14 @@ export default function Home() {
           <div>
             <div className='mx-auto max-w-5xl px-6 lg:px-8'>
               <div className='mt-16 flow-root sm:mt-24'>
-                <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
+                <div className='-m-2 rounded-xl bg-digital-blue/5 p-2 ring-1 ring-inset ring-gray-500/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
                   <Image
-                    src='/'
+                    src=''
                     alt='product preview'
                     width={1200}
                     height={600}
                     quality={100}
-                    className='rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
+                    className='rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray/10'
                   />
                 </div>
               </div>
@@ -141,7 +141,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Statistics Section
+      {/* Statistics Section */}
       <div className='mx-auto mb-24 mt-16 max-w-5xl sm:mt-35 text-center'>
         <h2 className='text-2xl font-bold text-gray-900'>Discover the impact of well-crafted SEO titles on your content's performance</h2>
         <p className='mt-2 text-zinc-700 lg:text-lg'>
@@ -149,52 +149,52 @@ export default function Home() {
         </p>
         <div className='mt-8 grid grid-cols-1 gap-8 md:grid-cols-3'>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>70% increase in CTR</span>
+            <span className='text-2xl font-bol text-digital-blue'>70% increase in CTR</span>
             <span className='mt-2 text-xl font-medium text-zinc-700'></span>
             <p className='mt-2 text-zinc-700'>SEO optimized titles can boost your click-through rate by up to 70%.</p>
           </div>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>50% higher rankings</span>
+            <span className='text-2xl font-bol text-digital-blue'>50% higher rankings</span>
             <span className='mt-2 text-xl font-medium text-zinc-700'></span>
             <p className='mt-2 text-zinc-700'>Well-crafted titles contribute to a 50% increase in search engine rankings.</p>
           </div>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>30% more engagement</span>
+            <span className='text-2xl font-bol text-digital-blue'>30% more engagement</span>
             <span className='mt-2 text-xl font-medium text-zinc-700'></span>
             <p className='mt-2 text-zinc-700'>Engaging titles can lead to a 30% increase in user engagement.</p>
           </div>
         </div>
-      </div> */}
+      </div>
 
        {/* Tips Section */}
-       <div className='mx-auto mb-24 mt-16 max-w-5xl sm:mt-35 text-center' style={{ fontFamily: 'var(--font-primary)' }}>
-        <h2 className='text-3xl font-bold text-gray-900'>Rules we follow for Effective SEO Titles</h2>
+       <div className='mx-auto mb-24 mt-16 max-w-5xl sm:mt-35 text-center'>
+        <h2 className='text-2xl font-bold text-gray-900'>Rules we follow for Effective SEO Titles</h2>
         <p className='mt-2 text-zinc-700 lg:text-lg'>
           We create SEO-friendly titles that attract clicks and boost your rankings.
         </p>
         <div className='mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>Use Keywords</span>
+            <span className='text-2xl font-bol text-digital-blue'>Use keywords</span>
             <p className='mt-2 text-zinc-700'>Incorporating relevant keywords naturally to help search engines understand your content.</p>
           </div>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>Keep It Concise</span>
+            <span className='text-2xl font-bol text-digital-blue'>Keep it concise</span>
             <p className='mt-2 text-zinc-700'>Ensuring your titles are concise, ideally under 60 characters, to avoid being cut off in search results.</p>
           </div>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>Make It Engaging</span>
+            <span className='text-2xl font-bol text-digital-blue'>Make it engaging</span>
             <p className='mt-2 text-zinc-700'>Crafting engaging titles that prompt users to click by sparking curiosity or addressing a need.</p>
           </div>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>Use Numbers</span>
+            <span className='text-2xl font-bol text-digital-blue'>Use numbers</span>
             <p className='mt-2 text-zinc-700'>Including numbers in titles can make them more attractive and clear to readers.</p>
           </div>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>Add Power Words</span>
+            <span className='text-2xl font-bol text-digital-blue'>Add power words</span>
             <p className='mt-2 text-zinc-700'>Using power words like "best", "ultimate", "proven", etc., to make your titles more compelling.</p>
           </div>
           <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bold text-blue-600'>Test and Iterate</span>
+            <span className='text-2xl font-bol text-digital-blue'>Test and iterate</span>
             <p className='mt-2 text-zinc-700'>Experimenting with different titles to see what works best for your audience and improves your SEO.</p>
           </div>
         </div>

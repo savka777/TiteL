@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
   return (
     <MaxWidthWrapper className='my-12 px-4 sm:px-6 lg:px-8'>
       <div className='mx-auto max-w-4xl p-6 border border-gray-200 rounded-md text-left'>
-        <h1 className='text-4xl font-bold text-gray-900 mb-6' style={{ fontFamily: 'var(--font-primary)' }}>Privacy Policy</h1>
+        <h1 className='text-4xl font-bold text-gray-900 mb-6'>Privacy Policy</h1>
         <p className='text-gray-700 mb-4'>
           At TiteL.io, we value your privacy and are committed to protecting your personal information. This privacy policy explains how we collect, use, and share information about you when you visit our website.
         </p>

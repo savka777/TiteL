@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className='sticky h-20 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all'>
       <MaxWidthWrapper>
         <div className='flex h-20 items-center justify-between border-b border-zinc-200'>
-          <Link href='/' className='flex items-center z-40 font-semibold' style={{ fontFamily: 'var(--font-primary)' }}>
+          <Link href='/' className='flex items-center z-40 font-semibold'>
             <Image src='/text-box.png' alt='Logo' width={40} height={40} className='mr-2' />
             <span>TiteL</span>
           </Link>

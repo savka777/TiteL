@@ -45,7 +45,7 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@joshtriedcoding"
+      creator: ""
     },
     icons,
     metadataBase: new URL('https://quill-jet.vercel.app'),

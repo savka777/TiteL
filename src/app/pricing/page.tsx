@@ -87,7 +87,7 @@ const Page = () => {
     <>
       <MaxWidthWrapper className='mb-8 mt-24 text-center max-w-5xl'>
         <div className='mx-auto mb-10 sm:max-w-lg'>
-          <h1 className='text-6xl font-bold sm:text-7xl' style={{ fontFamily: 'var(--font-primary)' }}>
+          <h1 className='text-6xl font-bold sm:text-7xl'>
             Pricing
           </h1>
           <p className='mt-5 text-gray-600 sm:text-lg'>
@@ -167,7 +167,7 @@ const Page = () => {
                               {negative ? (
                                 <Minus className='h-6 w-6 text-gray-300' />
                               ) : (
-                                <Check className='h-6 w-6 text-blue-500' />
+                                <Check className='h-6 w-6 text-digital-blue' />
                               )}
                             </div>
                             {footnote ? (

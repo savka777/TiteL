@@ -25,6 +25,7 @@ export default function Layout({
     <html lang='en' className='light'>
       <Providers>
         <body className={cn('min-h-screen flex flex-col antialiased grainy', inter.className)}>
+             {/* <body className={cn('min-h-screen flex flex-col bg-gray', inter.className)}> */}
           <Toaster />
           <Navbar />
           <main className="flex-grow">

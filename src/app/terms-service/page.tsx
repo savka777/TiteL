@@ -5,7 +5,7 @@ const TermsOfService = () => {
   return (
     <MaxWidthWrapper className='my-12 px-4 sm:px-6 lg:px-8'>
       <div className='mx-auto max-w-4xl p-6 border border-gray-200 rounded-md'>
-        <h1 className='text-3xl font-bold text-gray-900 mb-6' style={{ fontFamily: 'var(--font-primary)' }}>Terms of Service</h1>
+        <h1 className='text-3xl font-bold text-gray-900 mb-6' >Terms of Service</h1>
         
         <p className='text-gray-700 mb-4'>
           Welcome to TiteL.io! These terms and conditions outline the rules and regulations for the use of our service.

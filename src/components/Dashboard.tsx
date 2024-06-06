@@ -67,7 +67,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
 
   return (
     <main className='mx-auto max-w-4xl md:p-10'>
-      <h1 className='mb-5 text-center font-bold text-4xl text-gray-900' style={{ fontFamily: 'var(--font-primary)' }}>
+      <h1 className='mb-5 text-center font-bold text-4xl text-gray-900'>
         Dashboard
       </h1>
       <div className='mb-8 p-5 border rounded-md'>
@@ -109,7 +109,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           </div>
         </div>
         <textarea
-          className='w-full p-5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-4'
+          className='w-full p-5 border border-gray-300 rounded-md shadow-sm focus:ring-digital-blue focus:border-blue-500 mb-4'
           placeholder='Enter your text here...'
           value={articleText}
           onChange={(e) => setArticleText(e.target.value)}
@@ -117,7 +117,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
         />
         <div className='flex justify-between items-center'>
           <button
-            className='px-4 py-2 bg-blue-500 text-white rounded-md flex items-center justify-center'
+            className='px-4 py-2 bg-digital-blue text-white rounded-md flex items-center justify-center'
             onClick={handleGenerateTitle}
             disabled={isLoading}
           >
@@ -128,15 +128,15 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
       {generatedTitle && (
         <div className="mt-8 p-5 border rounded-md">
           <div className='flex justify-between items-center'>
-            <h2 className="text-xl font-semibold">{displayArticleType} Title</h2>
+            <p className="text-sm font-semibold">{displayArticleType} Title</p>
             <button
               className="p-2 ml-4 border border-gray-300 rounded-md shadow-sm flex items-center justify-center bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
               onClick={handleCopyToClipboard}
             >
-              {isCopied ? <Check className='h-5 w-5 text-blue-500' /> : <Clipboard className='h-5 w-5' />}
+              {isCopied ? <Check className='h-5 w-5 text-digital-blue' /> : <Clipboard className='h-5 w-5' />}
             </button>
           </div>
-          <p className="mt-2">{generatedTitle}</p>
+          <h1 className="text-xl font-bold mt-2">{generatedTitle}</h1>
         </div>
       )}
       <a
