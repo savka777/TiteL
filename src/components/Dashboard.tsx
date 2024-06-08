@@ -31,6 +31,11 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
       return;
     }
 
+    if (articleText.length < 299) {
+      alert('Article text must be at least 50 words.');
+      return;
+    }
+
     setIsLoading(true);
 
     try {
