@@ -1,10 +1,16 @@
 import BillingForm from "@/components/BillingForm"
-import { getUserSubscriptionPlan } from "@/lib/stripe"
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
+import { redirect } from 'next/navigation'
 
 const Page = async () => {
-    const subscriptionPlan = await getUserSubscriptionPlan()
+    const { getUser } = getKindeServerSession()
+    const user = getUser()
 
-    return <BillingForm subscriptionPlan={subscriptionPlan} /> 
+    if (!user || !user.id) {
+        redirect('/auth-callback?origin=dashboard/billing')
+    }
+
+    return <BillingForm />
 }
 
 export default Page

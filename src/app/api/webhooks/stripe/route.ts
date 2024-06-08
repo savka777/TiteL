@@ -17,60 +17,29 @@ export async function POST(request: Request) {
     )
   } catch (err) {
     return new Response(
-      `Webhook Error: ${
-        err instanceof Error ? err.message : 'Unknown Error'
-      }`,
+      `Webhook Error: ${err instanceof Error ? err.message : 'Unknown Error'}`,
       { status: 400 }
     )
   }
 
-  const session = event.data
-    .object as Stripe.Checkout.Session
+  const session = event.data.object as Stripe.Checkout.Session
 
   if (!session?.metadata?.userId) {
-    return new Response(null, {
-      status: 200,
-    })
+    return new Response(null, { status: 200 })
   }
 
   if (event.type === 'checkout.session.completed') {
-    const subscription =
-      await stripe.subscriptions.retrieve(
-        session.subscription as string
-      )
+    const userId = session.metadata.userId
+    const priceId = session.metadata.priceId
+
+    let tokensToAdd = 0
+    if (priceId === 'price_1PPPQVP3PzZi6quKQ6kQPDb0') tokensToAdd = 50
+    else if (priceId === 'price_1PPPRcP3PzZi6quKkn3eKGR6') tokensToAdd = 100
+    else if (priceId === 'price_1PPPRuP3PzZi6quKhk2ypHIG') tokensToAdd = 200
 
     await db.user.update({
-      where: {
-        id: session.metadata.userId,
-      },
-      data: {
-        stripeSubscriptionId: subscription.id,
-        stripeCustomerId: subscription.customer as string,
-        stripePriceId: subscription.items.data[0]?.price.id,
-        stripeCurrentPeriodEnd: new Date(
-          subscription.current_period_end * 1000
-        ),
-      },
-    })
-  }
-
-  if (event.type === 'invoice.payment_succeeded') {
-    // Retrieve the subscription details from Stripe.
-    const subscription =
-      await stripe.subscriptions.retrieve(
-        session.subscription as string
-      )
-
-    await db.user.update({
-      where: {
-        stripeSubscriptionId: subscription.id,
-      },
-      data: {
-        stripePriceId: subscription.items.data[0]?.price.id,
-        stripeCurrentPeriodEnd: new Date(
-          subscription.current_period_end * 1000
-        ),
-      },
+      where: { id: userId },
+      data: { tokenBalance: { increment: tokensToAdd } },
     })
   }
 

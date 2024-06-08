@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { Loader2, Clipboard, Check, Coffee } from 'lucide-react'; // Import Check icon
-import { getUserSubscriptionPlan } from '@/lib/stripe';
-import Script from 'next/script';
+import { Button } from './ui/button';
+import { trpc } from '@/app/_trpc/client';
 
 interface PageProps {
-  subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>;
+  tokenBalance: number; // Update to use token balance
 }
 
-const Dashboard = ({ subscriptionPlan }: PageProps) => {
+const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
   const [articleText, setArticleText] = useState('');
   const [generatedTitle, setGeneratedTitle] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -19,12 +19,18 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isCopied, setIsCopied] = useState(false); // New state for tracking if text is copied
   const [wordCount, setWordCount] = useState(0); // New state for tracking word count
+  const [tokenBalance, setTokenBalance] = useState(initialTokenBalance); // Track token balance
 
   useEffect(() => {
     setIsHydrated(true);
   }, []);
 
   const handleGenerateTitle = async () => {
+    if (tokenBalance <= 0) {
+      alert('You have no tokens left. Please purchase more tokens.');
+      return;
+    }
+
     const words = articleText.trim().split(/\s+/).length;
     if (words > 1000) {
       alert('Input exceeds 1000 words. Please shorten your text.');
@@ -54,6 +60,11 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
         setGeneratedTitle(data.title);
         setDisplayArticleType(articleType);
         setIsCopied(false); // Reset copied state when a new title is generated
+        setTokenBalance(tokenBalance - 1); // Deduct one token
+
+        // Update token balance in the database
+        const updateTokenBalanceMutation = trpc.updateTokenBalance.useMutation();
+        await updateTokenBalanceMutation.mutateAsync({ decrement: 1 });
       } else {
         console.error('Error generating title:', data.message);
       }
@@ -85,7 +96,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
 
   return (
     <main className='mx-auto max-w-4xl md:p-10'>
-      <h1 className='mb-5 text-center font-semi-bold text-4xl text-gray-900' >
+      <h1 className='mb-5 text-center font-semi-bold text-4xl text-gray-900'>
         Dashboard
       </h1>
       <div className='mb-8 p-5 border rounded-md'>
@@ -157,6 +168,9 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
           </div>
         </div>
       )}
+      <div className="mt-8 p-5 border rounded-md">
+        <h2 className="text-xl font-bold">Token Balance: {tokenBalance}</h2> {/* Display token balance */}
+      </div>
       <a
         href="https://www.buymeacoffee.com/titel"
         target="_blank"

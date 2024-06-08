@@ -75,14 +75,20 @@ const UserAccountNav = async ({
           <Link href='/dashboard'>Dashboard</Link>
         </DropdownMenuItem>
 
-        <DropdownMenuSeparator/>
         <DropdownMenuItem asChild>
-        <Link href='https://www.buymeacoffee.com/titel'> Buy us a coffee</Link>
+          <Link href='/dashboard/billing'>Purchase Tokens</Link>
         </DropdownMenuItem>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem asChild>
+          <Link href='https://www.buymeacoffee.com/titel'>Buy us a coffee</Link>
+        </DropdownMenuItem>
+
         <DropdownMenuSeparator />
 
         <DropdownMenuItem className='cursor-pointer'>
-            <LogoutLink>Log out</LogoutLink>
+          <LogoutLink>Log out</LogoutLink>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
