@@ -8,22 +8,7 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
   typescript: true,
 })
 
-interface SubscriptionPlan {
-  name: string
-  slug: string
-  quota: number
-  price: {
-    amount: number
-    priceIds: {
-      test: string
-      production: string
-    }
-  }
-  isSubscribed: boolean
-  isCanceled: boolean
-  stripeCurrentPeriodEnd: Date | null
-  tokenBalance: number // Add this line to include the token balance property
-}
+
 
 export async function getUserSubscriptionPlan() {
   const { getUser } = getKindeServerSession()
