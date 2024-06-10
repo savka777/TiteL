@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Loader2, Clipboard, Check, Coffee } from 'lucide-react'; // Import Check icon
+import { Loader2, Clipboard, Check, Coffee, Coins } from 'lucide-react'; // Import Coin icon
 import { Button } from './ui/button';
 import { trpc } from '@/app/_trpc/client';
 
 interface PageProps {
-  tokenBalance: number; // Update to use token balance
+  tokenBalance: number;
 }
 
 const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
@@ -17,9 +17,9 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
   const [articleType, setArticleType] = useState('News Article');
   const [displayArticleType, setDisplayArticleType] = useState('News Article');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isCopied, setIsCopied] = useState(false); // New state for tracking if text is copied
-  const [wordCount, setWordCount] = useState(0); // New state for tracking word count
-  const [tokenBalance, setTokenBalance] = useState(initialTokenBalance); // Track token balance
+  const [isCopied, setIsCopied] = useState(false); 
+  const [wordCount, setWordCount] = useState(0);
+  const [tokenBalance, setTokenBalance] = useState(initialTokenBalance);
 
   useEffect(() => {
     setIsHydrated(true);
@@ -59,10 +59,9 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
       if (response.ok) {
         setGeneratedTitle(data.title);
         setDisplayArticleType(articleType);
-        setIsCopied(false); // Reset copied state when a new title is generated
-        setTokenBalance(tokenBalance - 1); // Deduct one token
+        setIsCopied(false); 
+        setTokenBalance(tokenBalance - 1);
 
-        // Update token balance in the database
         const updateTokenBalanceMutation = trpc.updateTokenBalance.useMutation();
         await updateTokenBalanceMutation.mutateAsync({ decrement: 1 });
       } else {
@@ -77,8 +76,8 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
 
   const handleCopyToClipboard = () => {
     navigator.clipboard.writeText(generatedTitle).then(() => {
-      setIsCopied(true); // Update copied state to true
-      setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
     }).catch((err) => {
       console.error('Failed to copy the text to clipboard', err);
     });
@@ -87,7 +86,7 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
   const handleTextChange = (e: { target: { value: any; }; }) => {
     const text = e.target.value;
     setArticleText(text);
-    setWordCount(text.trim().split(/\s+/).length); // Update word count
+    setWordCount(text.trim().split(/\s+/).length);
   };
 
   if (!isHydrated) {
@@ -102,7 +101,7 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
       <div className='mb-8 p-5 border rounded-md'>
         <div className="mb-4 flex justify-between items-center">
           <div className="relative inline-block text-left">
-            <div>
+            <div className="flex items-center">
               <button
                 type="button"
                 className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
@@ -116,32 +115,36 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-            </div>
-            {isDropdownOpen && (
-              <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                <div className="py-1" role="none">
-                  {['News Article', 'Blog Post', 'Substack'].map((type) => (
-                    <button
-                      key={type}
-                      onClick={() => {
-                        setArticleType(type);
-                        setIsDropdownOpen(false);
-                      }}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                    >
-                      {type}
-                    </button>
-                  ))}
+              {isDropdownOpen && (
+                <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                  <div className="py-1" role="none">
+                    {['News Article', 'Blog Post', 'Substack'].map((type) => (
+                      <button
+                        key={type}
+                        onClick={() => {
+                          setArticleType(type);
+                          setIsDropdownOpen(false);
+                        }}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
                 </div>
+              )}
+              <div className="flex items-center ml-4">
+                <Coins className="h-5 w-5 text-gray-700"  />
+                <span className="ml-1 text-sm text-gray-700">{tokenBalance}</span>
               </div>
-            )}
+            </div>
           </div>
         </div>
         <textarea
           className='w-full p-5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-4'
           placeholder='Enter your text here...'
           value={articleText}
-          onChange={handleTextChange} // Updated to handle text change
+          onChange={handleTextChange}
           rows={10}
         />
         <div className='flex justify-between items-center'>
@@ -152,7 +155,7 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
           >
             {isLoading ? <Loader2 className='h-4 w-4 animate-spin' /> : 'Generate Title'}
           </button>
-          <span className="text-sm text-gray-600">{wordCount}/1000 words</span> {/* Display word count */}
+          <span className="text-sm text-gray-600">{wordCount}/1000 words</span>
         </div>
       </div>
       {generatedTitle && (
@@ -168,9 +171,6 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
           </div>
         </div>
       )}
-      <div className="mt-8 p-5 border rounded-md">
-        <h2 className="text-xl font-bold">Token Balance: {tokenBalance}</h2> {/* Display token balance */}
-      </div>
       <a
         href="https://www.buymeacoffee.com/titel"
         target="_blank"

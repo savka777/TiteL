@@ -76,7 +76,7 @@ const UserAccountNav = async ({
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          <Link href='/dashboard/billing'>Purchase Tokens</Link>
+          <Link href='/dashboard/billing'>Purchase Tokens </Link>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />

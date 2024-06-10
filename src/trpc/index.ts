@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { INFINITE_QUERY_LIMIT } from '@/config/infinite-query'
 import { absoluteUrl } from '@/lib/utils'
 import { stripe } from '@/lib/stripe'
+import { PLANS } from '@/config/stripe'
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
@@ -86,6 +87,15 @@ export const appRouter = router({
           priceId: packageId, // Include priceId in metadata
         },
       })
+
+   // After creating the Stripe session, update the user's token balance in the database
+const selectedPlan = PLANS.find((plan: typeof PLANS[number]) => plan.price.priceIds.test === packageId)
+if (selectedPlan) {
+  await db.user.update({
+    where: { id: userId },
+    data: { tokenBalance: { increment: selectedPlan.quota } },
+  })
+}
 
       return { url: stripeSession.url }
     }),

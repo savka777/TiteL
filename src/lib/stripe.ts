@@ -8,6 +8,23 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
   typescript: true,
 })
 
+interface SubscriptionPlan {
+  name: string
+  slug: string
+  quota: number
+  price: {
+    amount: number
+    priceIds: {
+      test: string
+      production: string
+    }
+  }
+  isSubscribed: boolean
+  isCanceled: boolean
+  stripeCurrentPeriodEnd: Date | null
+  tokenBalance: number // Add this line to include the token balance property
+}
+
 export async function getUserSubscriptionPlan() {
   const { getUser } = getKindeServerSession()
   const user = getUser()
@@ -18,6 +35,7 @@ export async function getUserSubscriptionPlan() {
       isSubscribed: false,
       isCanceled: false,
       stripeCurrentPeriodEnd: null,
+      tokenBalance: 0,
     }
   }
 
@@ -61,5 +79,6 @@ export async function getUserSubscriptionPlan() {
     stripeCustomerId: dbUser.stripeCustomerId,
     isSubscribed,
     isCanceled,
+    tokenBalance: dbUser.tokenBalance,
   }
 }
