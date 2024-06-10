@@ -11,7 +11,7 @@ import { Avatar, AvatarFallback } from './ui/avatar'
 import Image from 'next/image'
 import { Icons } from './Icons'
 import Link from 'next/link'
-import { Gem } from 'lucide-react'
+import { Coins, Gem } from 'lucide-react'
 import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/server'
 
 interface UserAccountNavProps {
@@ -76,16 +76,16 @@ const UserAccountNav = async ({
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          <Link href='/dashboard/billing'>Purchase Tokens </Link>
+          <Link href='/dashboard/billing'>Purchase Tokens <Coins className="h-5 w-8 text-gray-700"  /> </Link>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem asChild>
+        {/* <DropdownMenuItem asChild>
           <Link href='https://www.buymeacoffee.com/titel'>Buy us a coffee</Link>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
-        <DropdownMenuSeparator />
+        
 
         <DropdownMenuItem className='cursor-pointer'>
           <LogoutLink>Log out</LogoutLink>

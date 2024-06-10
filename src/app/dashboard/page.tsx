@@ -23,7 +23,9 @@ const Page = async () => {
   // Fetch the token balance from the database
   const tokenBalance = dbUser.tokenBalance;
 
-  return <Dashboard subscriptionPlan={subscriptionPlan} tokenBalance={tokenBalance} />;
+  // Pass the user ID as a prop to the Dashboard component
+  //removed subscriptionPlan={subscriptionPlan}
+  return <Dashboard  tokenBalance={tokenBalance} userId={user.id} />;
 };
 
 export default Page;

@@ -1,15 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Loader2, Clipboard, Check, Coffee, Coins } from 'lucide-react'; // Import Coin icon
+import { Loader2, Clipboard, Check, Coffee, Coins } from 'lucide-react';
 import { Button } from './ui/button';
 import { trpc } from '@/app/_trpc/client';
 
 interface PageProps {
   tokenBalance: number;
+  userId: string | null;
 }
 
-const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
+const Dashboard = ({ tokenBalance: initialTokenBalance, userId }: PageProps) => {
   const [articleText, setArticleText] = useState('');
   const [generatedTitle, setGeneratedTitle] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +18,7 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
   const [articleType, setArticleType] = useState('News Article');
   const [displayArticleType, setDisplayArticleType] = useState('News Article');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isCopied, setIsCopied] = useState(false); 
+  const [isCopied, setIsCopied] = useState(false);
   const [wordCount, setWordCount] = useState(0);
   const [tokenBalance, setTokenBalance] = useState(initialTokenBalance);
 
@@ -50,7 +51,7 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ articleText, articleType }),
+        body: JSON.stringify({ articleText, articleType, userId }),
       });
 
       const data = await response.json();
@@ -59,7 +60,7 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
       if (response.ok) {
         setGeneratedTitle(data.title);
         setDisplayArticleType(articleType);
-        setIsCopied(false); 
+        setIsCopied(false);
         setTokenBalance(tokenBalance - 1);
 
         const updateTokenBalanceMutation = trpc.updateTokenBalance.useMutation();
@@ -133,11 +134,11 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
                   </div>
                 </div>
               )}
-              <div className="flex items-center ml-4">
-                <Coins className="h-5 w-5 text-gray-700"  />
-                <span className="ml-1 text-sm text-gray-700">{tokenBalance}</span>
-              </div>
             </div>
+          </div>
+          <div className="flex items-center">
+            <Coins className="h-5 w-5 text-gray-700" />
+            <span className="ml-1 text-sm text-gray-700">{tokenBalance}</span>
           </div>
         </div>
         <textarea
@@ -171,14 +172,6 @@ const Dashboard = ({ tokenBalance: initialTokenBalance }: PageProps) => {
           </div>
         </div>
       )}
-      <a
-        href="https://www.buymeacoffee.com/titel"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 p-3 bg-yellow-500 rounded-full shadow-lg hover:bg-yellow-600 transition-all"
-      >
-        <Coffee className="h-6 w-6 text-white" />
-      </a>
     </main>
   );
 };
