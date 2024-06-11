@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const WordCarousel: React.FC = () => {
   const words = [
@@ -11,7 +11,7 @@ const WordCarousel: React.FC = () => {
     "7. India vs Pakistan",
     "8. Carlos Alcaraz",
     "9. Black Ops 6",
-    "10. Luka Doncic"
+    "10. Luka Doncic",
   ];
 
   return (

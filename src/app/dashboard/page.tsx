@@ -1,14 +1,14 @@
-import Dashboard from '@/components/Dashboard';
-import { db } from '@/db';
-import { getUserSubscriptionPlan } from '@/lib/stripe';
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { redirect } from 'next/navigation';
+import Dashboard from "@/components/Dashboard";
+import { db } from "@/db";
+import { getUserSubscriptionPlan } from "@/lib/stripe";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { redirect } from "next/navigation";
 
 const Page = async () => {
   const { getUser } = getKindeServerSession();
   const user = getUser();
 
-  if (!user || !user.id) redirect('/auth-callback?origin=dashboard');
+  if (!user || !user.id) redirect("/auth-callback?origin=dashboard");
 
   const dbUser = await db.user.findFirst({
     where: {
@@ -16,7 +16,7 @@ const Page = async () => {
     },
   });
 
-  if (!dbUser) redirect('/auth-callback?origin=dashboard');
+  if (!dbUser) redirect("/auth-callback?origin=dashboard");
 
   const subscriptionPlan = await getUserSubscriptionPlan();
 
@@ -25,7 +25,7 @@ const Page = async () => {
 
   // Pass the user ID as a prop to the Dashboard component
   //removed subscriptionPlan={subscriptionPlan}
-  return <Dashboard  tokenBalance={tokenBalance} userId={user.id} />;
+  return <Dashboard tokenBalance={tokenBalance} userId={user.id} />;
 };
 
 export default Page;

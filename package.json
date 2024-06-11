@@ -66,6 +66,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@types/formidable": "^3.4.5"
+    "@types/formidable": "^3.4.5",
+    "prettier": "^3.3.2"
   }
 }
