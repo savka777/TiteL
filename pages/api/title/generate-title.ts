@@ -28,12 +28,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log('API Response:', response);
 
-    const generatedTitle = response.choices[0]?.message?.content?.trim();
+    let generatedTitle = response.choices[0]?.message?.content?.trim();
     console.log('Generated Title:', generatedTitle);
 
     if (!generatedTitle) {
       return res.status(500).json({ message: 'Failed to generate title' });
     }
+
+    // Remove any leading or trailing quotation marks from the generated title
+    generatedTitle = generatedTitle.replace(/^["']|["']$/g, '');
 
     // Print the user ID to the console
     console.log('User ID:', userId);

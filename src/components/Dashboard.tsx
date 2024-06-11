@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Loader2, Clipboard, Check, Coffee, Coins } from 'lucide-react';
 import { Button } from './ui/button';
 import { trpc } from '@/app/_trpc/client';
+import WordCarousel from '@/components/WordCarousel'; // Import the WordCarousel component
 
 interface PageProps {
   tokenBalance: number;
@@ -96,6 +97,7 @@ const Dashboard = ({ tokenBalance: initialTokenBalance, userId }: PageProps) => 
 
   return (
     <main className='mx-auto max-w-4xl md:p-10'>
+      {/* <WordCarousel/> */}
       <h1 className='mb-5 text-center font-semi-bold text-4xl text-gray-900'>
         Dashboard
       </h1>
@@ -159,6 +161,7 @@ const Dashboard = ({ tokenBalance: initialTokenBalance, userId }: PageProps) => 
           <span className="text-sm text-gray-600">{wordCount}/1000 words</span>
         </div>
       </div>
+      
       {generatedTitle && (
         <div className="mt-8 p-5 border rounded-md">
           <div className='flex justify-between items-center'>

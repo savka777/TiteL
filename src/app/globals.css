@@ -3,6 +3,44 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
 
+.carousel-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: .75rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333
+}
+
+.carousel {
+  display: inline-block;
+  animation: scroll 40s linear infinite;
+}
+
+.carousel-word {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #344b69;
+  opacity:70%;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 @layer base {
   :root {
     --font-primary: 'Neue Helvetica', serif;

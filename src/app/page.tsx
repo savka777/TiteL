@@ -1,9 +1,9 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Info, BarChart2, TrendingUp, Activity } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import Image from 'next/image'
-import Footer from '@/components/Footer'
+import Tooltip from '@/components/Tooltip' // Import the Tooltip component
 
 export default function Home() {
   return (
@@ -18,9 +18,9 @@ export default function Home() {
           <span className='text-blue-600'>TiteL</span>{' '}
         </h1> */}
         <h1 className='max-w-10xl text-10xl font-bold md:text-10xl lg:text-7xl text-left '>
-  Get your work <br></br> seen with {' '}
-  <span className='text-digital-blue'>TiteL</span>
-</h1>
+          Get your work <br></br> seen with {' '}
+          <span className='text-digital-blue'>TiteL</span>
+        </h1>
 
         <p className='mt-5 max-w-prose text-zinc-700 lg:text-lg'>
           TiteL.io allows you improve your contents visibilty by generating
@@ -39,7 +39,7 @@ export default function Home() {
         </Link>
       </MaxWidthWrapper>
 
-            {/* Feature section */}
+      {/* Feature section */}
       <div className='mx-auto mb-0 mt-16 max-w-5xl sm:mt-35'>
         {/* steps */}
         <ol className='my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0'>
@@ -59,7 +59,6 @@ export default function Home() {
                   className='text-blue-700 underline underline-offset-2'>
                   pro plan
                 </Link> */}
-                
               </span>
             </div>
           </li>
@@ -74,7 +73,7 @@ export default function Home() {
                 Select your style of text
               </span>
               <span className='mt-2 text-zinc-700'>
-                Choose between News Article, Blog post or Substack .
+                Choose between News Article, Blog post or Substack.
               </span>
             </div>
           </li>
@@ -115,7 +114,7 @@ export default function Home() {
               <div className='mt-16 flow-root sm:mt-24'>
                 <div className='-m-2 rounded-xl bg-digital-blue/5 p-2 ring-1 ring-inset ring-gray-500/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
                   <Image
-                    src=''
+                    src='/path/to/image.jpg'
                     alt='product preview'
                     width={1200}
                     height={600}
@@ -142,33 +141,45 @@ export default function Home() {
       </div>
 
       {/* Statistics Section */}
-      <div className='mx-auto mb-24 mt-16 max-w-5xl sm:mt-35 text-center'>
+      <div className='mx-auto mb-24 mt-24 max-w-5xl sm:mt-35 text-center'>
         <h2 className='text-2xl font-bold text-gray-900'>Discover the impact of well-crafted SEO titles on your content's performance</h2>
         <p className='mt-2 text-zinc-700 lg:text-lg'>
           
         </p>
         <div className='mt-8 grid grid-cols-1 gap-8 md:grid-cols-3'>
-          <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bol text-digital-blue'>70% increase in CTR</span>
-            <span className='mt-2 text-xl font-medium text-zinc-700'></span>
-            <p className='mt-2 text-zinc-700'>SEO optimized titles can boost your click-through rate by up to 70%.</p>
+          <div className='relative flex flex-col items-center p-4 border rounded-lg'>
+            <BarChart2 className='h-16 w-16 text-digital-blue mb-4' />
+            <div className="flex items-center">
+              <h2 className='mt-2 text-zinc-700 lg:text-lg'>300% more engagement</h2>
+              <Tooltip content="An optimized title can improve click-through rates by up to 20%, boosting your search engine ranking and visibility.">
+                <Info className='ml-1 h-3.5 w-3.5 text-zinc-500 cursor-pointer' />
+              </Tooltip>
+            </div>
           </div>
-          <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bol text-digital-blue'>50% higher rankings</span>
-            <span className='mt-2 text-xl font-medium text-zinc-700'></span>
-            <p className='mt-2 text-zinc-700'>Well-crafted titles contribute to a 50% increase in search engine rankings.</p>
+          <div className='relative flex flex-col items-center p-4 border rounded-lg'>
+            <TrendingUp className='h-16 w-16 text-digital-blue mb-4' />
+            <div className="flex items-center">
+              <h2 className='mt-2 text-zinc-700 lg:text-lg'>20% higher CTR</h2>
+              <Tooltip content="Well-crafted titles make a significant difference in engagement metrics, garnering 2-3 times more engagement compared to poorly optimized titles.">
+                <Info className='ml-1 h-3.5 w-3.5 text-zinc-500 cursor-pointer' />
+              </Tooltip>
+            </div>
           </div>
-          <div className='flex flex-col items-center'>
-            <span className='text-2xl font-bol text-digital-blue'>30% more engagement</span>
-            <span className='mt-2 text-xl font-medium text-zinc-700'></span>
-            <p className='mt-2 text-zinc-700'>Engaging titles can lead to a 30% increase in user engagement.</p>
+            <div className='relative flex flex-col items-center p-4 border rounded-lg'>
+            <Activity className='h-16 w-16 text-digital-blue mb-4' />
+            <div className="flex items-center">
+              <h2 className='mt-2 text-zinc-700 lg:text-lg'>3x more impact</h2>
+              <Tooltip content="Better titles are over three times more likely to rank highly in search engine results pages (SERPs) compared to poorly optimized titles.">
+                <Info className='ml-1 h-3.5 w-3.5 text-zinc-500 cursor-pointer' />
+              </Tooltip>
+            </div>
           </div>
         </div>
       </div>
 
        {/* Tips Section */}
        <div className='mx-auto mb-24 mt-16 max-w-5xl sm:mt-35 text-center'>
-        <h2 className='text-2xl font-bold text-gray-900'>Rules we follow for Effective SEO Titles</h2>
+        <h2 className='text-2xl font-bold text-gray-900'>Rules we follow for effective SEO Titles</h2>
         <p className='mt-2 text-zinc-700 lg:text-lg'>
           We create SEO-optimized titles that attract clicks and boost your rankings.
         </p>
