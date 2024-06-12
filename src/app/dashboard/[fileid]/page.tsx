@@ -1,4 +1,4 @@
-import UploadButton from "@/components/UploadButton";
+// import UploadButton from "@/components/UploadButton";
 import { db } from "@/db";
 import { getUserSubscriptionPlan } from "@/lib/stripe";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
@@ -37,7 +37,7 @@ const Page = async ({ params }: PageProps) => {
           <div className="px-4 py-6 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6">
             {/* Main area */}
             <div className="flex justify-center mt-4">
-              <UploadButton isSubscribed={plan.isSubscribed} />
+              {/* <UploadButton isSubscribed={plan.isSubscribed} /> */}
             </div>
           </div>
         </div>
