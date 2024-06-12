@@ -33,6 +33,7 @@ export const PLANS = [
         test: "price_1PPPRcP3PzZi6quKkn3eKGR6",
         production: "",
       },
+      pagesPerPdf: 100, // Add this property
     },
   },
   {
@@ -44,6 +45,7 @@ export const PLANS = [
       priceIds: {
         test: "price_1PPPRuP3PzZi6quKhk2ypHIG",
         production: "",
+        pagesPerPdf: 100, // Add this property
       },
     },
   },
