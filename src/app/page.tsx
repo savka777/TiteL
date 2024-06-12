@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
-import Tooltip from "@/components/Tooltip"; // Import the Tooltip component
+import Tooltip from "@/components/Tooltip";
 
 export default function Home() {
   return (
@@ -25,10 +25,10 @@ export default function Home() {
           <span className='text-blue-600'>TiteL</span>{' '}
         </h1> */}
         
-        <h1 className="max-w-10xl text-10xl font-bold md:text-10xl lg:text-7xl text-left ">
-          Get your work <br></br> seen with{" "}
-          <span className="text-digital-blue">TiteL</span>
-        </h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center max-w-10xl">
+  Get your work <br /> seen with{" "}
+  <span className="text-digital-blue">TiteL</span>
+</h1>
 
         <p className="mt-5 max-w-prose text-zinc-700 lg:text-lg">
           TiteL.io allows you improve your contents visibilty by generating SEO
@@ -48,7 +48,7 @@ export default function Home() {
       </MaxWidthWrapper>
       
 
-      <div className="mx-auto mb-0 mt-16 max-w-5xl sm:mt-35">
+      <div className="mx-auto mb-0 mt-16 max-w-5xl sm:mt-35 text-center">
         {/* steps */}
         <ol className="my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0">
           {/* item 1 */}
@@ -173,7 +173,7 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.2"
+              strokeWidth="1.2"
               width="50"
               height="50"
               stroke="#3d5a80"
@@ -203,7 +203,7 @@ export default function Home() {
               viewBox="0 0 24 24"
               width="50"
               height="50"
-              stroke-width="1.2"
+              strokeWidth="1.2"
               stroke="#3d5a80"
               className="size-6"
             >
@@ -226,7 +226,7 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.2"
+              strokeWidth="1.2"
               stroke="#3d5a80"
               width="50"
               height="50"

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, Coins, Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -74,6 +74,16 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     href="/dashboard"
                   >
                     Dashboard
+                  </Link>
+                </li>
+                <li className="my-3 h-px w-full bg-gray-300" />
+                <li>
+                  <Link
+                    onClick={() => closeOnCurrent("/purchase-tokens")}
+                    className="flex items-center w-full font-semibold"
+                    href="/dashboard/billing"
+                  >
+                    Purchase Tokens <Coins className="h-5 w-8 text-gray-700" />{" "}
                   </Link>
                 </li>
                 <li className="my-3 h-px w-full bg-gray-300" />

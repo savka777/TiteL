@@ -5,6 +5,10 @@ import { Loader2, Clipboard, Check, Coffee, Coins } from "lucide-react";
 import { Button } from "./ui/button";
 import { trpc } from "@/app/_trpc/client";
 import WordCarousel from "@/components/WordCarousel"; // Import the WordCarousel component
+import Link from "next/link";
+import Banner from "./Banner";
+import BannerInputToLong from "./BannerInputToLong";
+import BannerInputToShort from  "./BannerInputToShort";
 
 interface PageProps {
   tokenBalance: number;
@@ -25,6 +29,9 @@ const Dashboard = ({
   const [isCopied, setIsCopied] = useState(false);
   const [wordCount, setWordCount] = useState(0);
   const [tokenBalance, setTokenBalance] = useState(initialTokenBalance);
+  const [showBanner, setShowBanner] = useState(false);
+  const [showExceedsWordLimitBanner, setShowExceedsWordLimitBanner] = useState(false);
+  const [showShortTextBanner, setShowShortTextBanner] = useState(false);
 
   useEffect(() => {
     setIsHydrated(true);
@@ -32,18 +39,21 @@ const Dashboard = ({
 
   const handleGenerateTitle = async () => {
     if (tokenBalance <= 0) {
-      alert("You have no tokens left. Please purchase more tokens.");
+      // console.log("No tokens left, showing banner");
+      setShowBanner(true);
       return;
     }
 
     const words = articleText.trim().split(/\s+/).length;
     if (words > 1000) {
-      alert("Input exceeds 1000 words. Please shorten your text.");
+      // alert("Input exceeds 1000 words. Please shorten your text.");
+      setShowExceedsWordLimitBanner(true);
       return;
     }
 
     if (articleText.length < 299) {
-      alert("Article text must be at least 50 words.");
+      // alert("Article text must be at least 50 words.");
+      setShowShortTextBanner(true);
       return;
     }
 
@@ -104,7 +114,9 @@ const Dashboard = ({
 
   return (
     <main className="mx-auto max-w-4xl md:p-10">
-      {/* <WordCarousel/> */}
+      {showBanner && <Banner onClose={() => setShowBanner(false)} />}
+        {showExceedsWordLimitBanner && <BannerInputToLong onClose={() => setShowExceedsWordLimitBanner(false)} />}
+          {showShortTextBanner && <BannerInputToShort onClose={() => setShowShortTextBanner(false)} />}
       <h1 className="mb-5 text-center font-semi-bold text-4xl text-gray-900">
         Dashboard
       </h1>
@@ -147,7 +159,6 @@ const Dashboard = ({
                           setIsDropdownOpen(false);
                         }}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray w-full text-left"
-                        
                       >
                         {type}
                       </button>
@@ -158,7 +169,9 @@ const Dashboard = ({
             </div>
           </div>
           <div className="flex items-center">
-            <Coins className="h-5 w-5 text-gray-700" />
+            <Link href="/dashboard/billing">
+              <Coins className="h-5 w-5 text-gray-700 cursor-pointer" />
+            </Link>
             <span className="ml-1 text-sm text-gray-700">{tokenBalance}</span>
           </div>
         </div>
