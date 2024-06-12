@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
           Privacy Policy
         </h1>
         <p className="text-gray-700 mb-4">
-          At TiteL.io, we value your privacy and are committed to protecting
+          At TiteL, we value your privacy and are committed to protecting
           your personal information. This privacy policy explains how we
           collect, use, and share information about you when you visit our
           website.

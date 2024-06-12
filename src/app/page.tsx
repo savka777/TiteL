@@ -162,7 +162,7 @@ export default function Home() {
       {/* Statistics Section */}
       <div className="mx-auto mb-24 mt-24 max-w-5xl sm:mt-35 text-center">
         <h2 className="text-2xl font-bold text-gray-900">
-          Discover the impact of well-crafted SEO titles on your content's
+          Discover the impact of well-crafted SEO titles on your content&apos;s
           performance
         </h2>
         <p className="mt-2 text-zinc-700 lg:text-lg"></p>
@@ -300,7 +300,7 @@ export default function Home() {
               Add power words
             </span>
             <p className="mt-2 text-zinc-700">
-              Using power words like "best", "ultimate", "proven", etc., to make
+              Using power words to make
               your titles more compelling.
             </p>
           </div>

@@ -39,7 +39,7 @@ const TermsOfService = () => {
         <p className="text-gray-700 mb-4">
           You agree to use the service only for lawful purposes and in a way
           that does not infringe the rights of, restrict, or inhibit anyone
-          else's use and enjoyment of the service.
+          else&apos;s use and enjoyment of the service.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -79,7 +79,7 @@ const TermsOfService = () => {
           7. Disclaimers and Limitation of Liability
         </h2>
         <p className="text-gray-700 mb-4">
-          The service is provided "as is" and "as available" without any
+          The service is provided &quot;as is&quot; and &quot;as available&quot; without any
           warranties of any kind. In no event shall TiteL.io be liable for any
           indirect, incidental, special, consequential, or punitive damages.
         </p>
