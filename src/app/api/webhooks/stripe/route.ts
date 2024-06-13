@@ -3,11 +3,9 @@ import { stripe } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
 
-// Disable the default body parser to handle raw body
-export const config = {
-  api: {
-    bodyParser: false,
-  },
+// Configure the route
+export const GET = {
+  runtime: 'edge',
 };
 
 // Helper function to convert ReadableStream to Buffer
@@ -60,7 +58,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(`Webhook Error: ${err.message}`, { status: 400 });
   }
 
-  console.log("event.type", event.type);
+  console.log("Received event:", event.id, event.type);
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
