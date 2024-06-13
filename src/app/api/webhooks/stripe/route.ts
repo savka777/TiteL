@@ -3,11 +3,6 @@ import { stripe } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
 
-// Configure the route
-export const GET = {
-  runtime: 'edge',
-};
-
 // Helper function to convert ReadableStream to Buffer
 async function streamToBuffer(stream: ReadableStream<Uint8Array>): Promise<Buffer> {
   const reader = stream.getReader();
@@ -25,7 +20,8 @@ async function streamToBuffer(stream: ReadableStream<Uint8Array>): Promise<Buffe
   return Buffer.concat(chunks);
 }
 
-// Export a named export for the POST method
+export const runtime = 'edge';
+
 export async function POST(req: NextRequest) {
   if (req.method !== "POST") {
     return NextResponse.json("Only POST requests allowed", { status: 405 });
