@@ -82,7 +82,7 @@ const BillingForm = () => {
               className="mb-4"
             />
             <h3 className="text-lg font-bold text-gray-900 mb-2">100 tokens</h3>
-            <p className="text-2xl font-bold text-gray-900 mb-4">$8</p>
+            <p className="text-2xl font-bold text-gray-900 mb-4">$7</p>
             <p className="text-gray-600 mb-4 text-center">
               One time purchase for 100 tokens. Good for 100 title generations
               of an article, script, or blog posts of up to 1000 words
