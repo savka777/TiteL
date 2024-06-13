@@ -65,10 +65,10 @@ const BillingForm = () => {
             </p>
             <Button
               className="w-full bg-digital-blue text-white"
-              onClick={() => handlePurchase("price_1PPPQVP3PzZi6quKQ6kQPDb0")}
+              onClick={() => handlePurchase("price_1PRCL4P3PzZi6quKwR3gQe2C")}
               disabled={isLoading}
             >
-              {isLoading && selectedPackage === "price_1PPPQVP3PzZi6quKQ6kQPDb0"
+              {isLoading && selectedPackage === "price_1PRCL4P3PzZi6quKwR3gQe2C"
                 ? "Processing..."
                 : "Buy now"}
             </Button>
@@ -89,10 +89,10 @@ const BillingForm = () => {
             </p>
             <Button
               className="w-full bg-digital-blue text-white"
-              onClick={() => handlePurchase("price_1PPPRcP3PzZi6quKkn3eKGR6")}
+              onClick={() => handlePurchase("price_1PRCL1P3PzZi6quKrRQXpV6j")}
               disabled={isLoading}
             >
-              {isLoading && selectedPackage === "price_1PPPRcP3PzZi6quKkn3eKGR6"
+              {isLoading && selectedPackage === "price_1PRCL1P3PzZi6quKrRQXpV6j"
                 ? "Processing..."
                 : "Buy now"}
             </Button>
@@ -113,10 +113,10 @@ const BillingForm = () => {
             </p>
             <Button
               className="w-full bg-digital-blue text-white"
-              onClick={() => handlePurchase("price_1PPPRuP3PzZi6quKhk2ypHIG")}
+              onClick={() => handlePurchase("price_1PRCKwP3PzZi6quKyj5lvvQ1")}
               disabled={isLoading}
             >
-              {isLoading && selectedPackage === "price_1PPPRuP3PzZi6quKhk2ypHIG"
+              {isLoading && selectedPackage === "price_1PRCKwP3PzZi6quKyj5lvvQ1"
                 ? "Processing..."
                 : "Buy now"}
             </Button>

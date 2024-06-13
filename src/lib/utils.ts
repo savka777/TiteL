@@ -14,7 +14,7 @@ export function absoluteUrl(path: string) {
 
 export function constructMetadata({
   title = "TiteL",
-  description = "",
+  description = "mprove your contents visibility by generating SEO friendly titles for your content",
   image = "/",
   icons = "/text.png",
   noIndex = false,
@@ -45,7 +45,7 @@ export function constructMetadata({
       creator: "",
     },
     icons,
-    // metadataBase: new URL("),
+    metadataBase: new URL("https://titel.vercel.app"),
     themeColor: "#FFF",
     ...(noIndex && {
       robots: {
