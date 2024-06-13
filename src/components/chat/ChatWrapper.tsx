@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { getUserSubscriptionPlan } from "@/lib/stripe";
-import UploadButton from "../UploadButton";
+
 
 interface PageProps {
   subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>;
@@ -49,7 +49,6 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
               "Generate"
             )}
           </button>
-          <UploadButton isSubscribed={subscriptionPlan.isSubscribed} />
         </div>
       </div>
       {generatedTitle && (
