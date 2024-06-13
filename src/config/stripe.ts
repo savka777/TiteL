@@ -19,7 +19,7 @@ export const PLANS = [
       amount: 5,
       priceIds: {
         test: "price_1PPPQVP3PzZi6quKQ6kQPDb0",
-        production: "",
+        production: "price_1PRCL4P3PzZi6quKwR3gQe2C",
       },
     },
   },
@@ -28,10 +28,10 @@ export const PLANS = [
     slug: "100-tokens",
     quota: 100,
     price: {
-      amount: 10,
+      amount: 7,
       priceIds: {
         test: "price_1PPPRcP3PzZi6quKkn3eKGR6",
-        production: "",
+        production: "price_1PRCL1P3PzZi6quKrRQXpV6j",
       },
     },
   },
@@ -43,7 +43,7 @@ export const PLANS = [
       amount: 20,
       priceIds: {
         test: "price_1PPPRuP3PzZi6quKhk2ypHIG",
-        production: "",
+        production: "price_1PRCKwP3PzZi6quKyj5lvvQ1",
       },
     },
   },

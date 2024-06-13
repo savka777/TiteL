@@ -39,9 +39,9 @@ export async function POST(request: Request) {
 
     if (paymentIntent.status === "succeeded") {
       let tokensToAdd = 0;
-      if (priceId === "price_1PPPQVP3PzZi6quKQ6kQPDb0") tokensToAdd = 50;
-      else if (priceId === "price_1PPPRcP3PzZi6quKkn3eKGR6") tokensToAdd = 100;
-      else if (priceId === "price_1PPPRuP3PzZi6quKhk2ypHIG") tokensToAdd = 200;
+      if (priceId === "price_1PRCL4P3PzZi6quKwR3gQe2C") tokensToAdd = 50;
+      else if (priceId === "price_1PRCL1P3PzZi6quKrRQXpV6j") tokensToAdd = 100;
+      else if (priceId === "price_1PRCKwP3PzZi6quKyj5lvvQ1") tokensToAdd = 200;
 
       await db.user.update({
         where: { id: userId },
