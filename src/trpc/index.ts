@@ -88,7 +88,7 @@ export const appRouter = router({
       // After creating the Stripe session, update the user's token balance in the database
       const selectedPlan = PLANS.find(
         (plan: (typeof PLANS)[number]) =>
-          plan.price.priceIds.test === packageId,
+          plan.price.priceIds.production === packageId,
       );
       if (selectedPlan) {
         await db.user.update({

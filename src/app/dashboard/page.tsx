@@ -18,7 +18,7 @@ const Page = async () => {
 
   if (!dbUser) redirect("/auth-callback?origin=dashboard");
 
-  const subscriptionPlan = await getUserSubscriptionPlan();
+  //const subscriptionPlan = await getUserSubscriptionPlan();
 
   // Fetch the token balance from the database
   const tokenBalance = dbUser.tokenBalance;
