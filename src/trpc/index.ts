@@ -82,7 +82,7 @@ export const appRouter = router({
 
         if (!dbUser) throw new TRPCError({ code: "UNAUTHORIZED" });
 
-        const billingUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard/billing`;
+        const billingUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard`;
 
         const stripeSession = await stripe.checkout.sessions.create({
           success_url: billingUrl,
