@@ -18,6 +18,7 @@ const Page = () => {
       if (success) {
         router.push(origin ? `/${origin}` : "/dashboard");
       } else {
+        console.error("Authentication failed: success flag is false");
         router.push("/sign-in");
       }
     },
