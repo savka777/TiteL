@@ -19,14 +19,14 @@ const Page = () => {
         router.push(origin ? `/${origin}` : "/dashboard");
       } else {
         console.error("Authentication failed: success flag is false");
-        router.push("/sign-in");
+        router.push("/dashboard");
       }
     },
     onError: (err) => {
       setLoading(false);
       console.error("Authentication error:", err);
       if (err.data?.code === "UNAUTHORIZED") {
-        router.push("/sign-in");
+        router.push("/dashboard");
       }
     },
     retry: true,
@@ -36,7 +36,7 @@ const Page = () => {
   useEffect(() => {
     if (!isLoading && !data && !error) {
       setLoading(false);
-      router.push("/sign-in");
+      router.push("/dashboard");
     }
   }, [isLoading, data, error, router]);
 
