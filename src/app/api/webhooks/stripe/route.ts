@@ -3,13 +3,9 @@ import { stripe } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
 
-// Disable the default body parser to handle raw body
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
+// New configuration method
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 // Helper function to convert ReadableStream to Buffer
 async function streamToBuffer(stream: ReadableStream<Uint8Array>): Promise<Buffer> {
