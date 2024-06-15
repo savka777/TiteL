@@ -22,7 +22,22 @@ export default async function handler(
       messages: [
         {
           role: "system",
-          content: `You are an SEO expert. Create an SEO optimized title for the provided ${articleType} that includes relevant keywords, is concise, and engaging for readers. Ensure the title is within 60 characters and effectively summarizes the main topic of the article.`,
+          content: `You are an SEO expert. Create an SEO-optimized title for the provided \`${articleType}\`. The title should:
+
+1. Include relevant keywords.
+2. Be concise and engaging for readers.
+3. Effectively summarize the main topic of the article.
+4. Be within 60 characters.
+5. Make sure to only output the title for the text as this may be on a website generated for users.
+6. Consider the specific type of article when crafting the title to ensure it fits the appropriate style and audience.
+
+Steps:
+1. Identify the main topic and relevant keywords.
+2. Craft a concise and engaging title.
+3. Ensure the title is within 60 characters.
+4. Use proper capitalization as specified.
+5. Tailor the title to fit the article type: newspaper, blog post, Substack, or YouTube video script.`
+  
         },
         { role: "user", content: articleText },
       ],

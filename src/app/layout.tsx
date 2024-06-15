@@ -6,6 +6,7 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { cn, constructMetadata } from "@/lib/utils";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/react';
 
 import "react-loading-skeleton/dist/skeleton.css";
 import "simplebar-react/dist/simplebar.min.css";
@@ -30,6 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <MaxWidthWrapper>{children}</MaxWidthWrapper>
           </main>
           <Footer />
+          <Analytics />
         </body>
       </Providers>
     </html>
