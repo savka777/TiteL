@@ -54,6 +54,7 @@ Titel is a web application designed to generate SEO-optimized titles for article
     OPENAI_API_KEY=
     STRIPE_SECRET_KEY=
     STRIPE_WEBHOOK_SECRET=
+    NEXT_PUBLIC_BASE_URL=
     ```
 
 4. **Run the development server**: 
