@@ -11,9 +11,14 @@ import {
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import Tooltip from "@/components/Tooltip";
-import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/server";
+import { RegisterLink, getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export default function Home() {
+  const { getUser } = getKindeServerSession();
+  const user = getUser();
+  const href = user
+  ? 'https://titel.vercel.app/auth-callback?origin=dashboard'
+  : 'https://titel.vercel.app/sign-up';
   return (
     <>
       <MaxWidthWrapper className="mb-12 mt-28 sm:mt-30 flex flex-col items-center justify-center text-center">
@@ -25,6 +30,7 @@ export default function Home() {
           Get Your Work Seen With
           <span className='text-blue-600'>TiteL</span>{' '}
         </h1> */}
+        
         
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center max-w-10xl">
   Get your work <br /> seen with{" "}
@@ -41,7 +47,7 @@ export default function Home() {
             size: "lg",
             className: "mt-5",
           })}
-          href="https://titel.vercel.app/auth-callback?origin=dashboard"
+          href= {href}
           target="_blank"
         >
           Get started <ArrowRight className="ml-2 h-5 w-5" />
