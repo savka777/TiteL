@@ -41,8 +41,6 @@ export default function Home() {
             size: "lg",
             className: "mt-5",
           })}
-          href="/dashboard"
-          target="_blank"
         >
           Get started <ArrowRight className="ml-2 h-5 w-5" />
         </RegisterLink>
