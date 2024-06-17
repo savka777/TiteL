@@ -1,6 +1,6 @@
 # Titel
-
-Titel is a web application designed to generate SEO-optimized titles for articles using OpenAI's GPT-4 model. The application integrates with various databases and services to provide a seamless user experience.
+![App Screenshot](./public/landingpagedemo.png)
+Titel is a web application designed to generate SEO-optimized titles for given text. The application integrates with various databases and services to provide a seamless user experience.
 
 ## Table of Contents
 
@@ -15,6 +15,8 @@ Titel is a web application designed to generate SEO-optimized titles for article
 - User authentication and token management.
 - Integration with multiple databases and services.
 - Responsive and user-friendly interface.
+
+[Watch the video](./public/title_vid.mp4)
 
 ## Technologies Used
 

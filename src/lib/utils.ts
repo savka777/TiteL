@@ -14,8 +14,8 @@ export function absoluteUrl(path: string) {
 
 export function constructMetadata({
   title = "TiteL",
-  description = "mprove your contents visibility by generating SEO friendly titles for your content",
-  image = "/",
+  description = "Improve your contents visibility by generating SEO optimized titles for your content",
+  image = "/landingpagedemo.png",
   icons = "/text.png",
   noIndex = false,
 }: {
