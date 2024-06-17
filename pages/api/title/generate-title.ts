@@ -42,6 +42,11 @@ Steps:
         { role: "user", content: articleText },
       ],
       max_tokens: 100,
+      temperature: 0.5,
+      top_p: 0.5,
+      frequency_penalty: 0.5,
+      presence_penalty: 0.2,
+
     });
 
     console.log("API Response:", response);
