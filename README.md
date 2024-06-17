@@ -16,8 +16,6 @@ Titel is a web application designed to generate SEO-optimized titles for given t
 - Integration with multiple databases and services.
 - Responsive and user-friendly interface.
 
-[Watch the video](./public/title_vid.mp4)
-
 ## Technologies Used
 
 - **Next.js**: A React framework for building server-side rendered and statically generated web applications.

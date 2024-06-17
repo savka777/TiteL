@@ -3,11 +3,9 @@ import { stripe } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
 
-// New configuration method
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-// Helper function to convert ReadableStream to Buffer
 async function streamToBuffer(stream: ReadableStream<Uint8Array>): Promise<Buffer> {
   const reader = stream.getReader();
   const chunks: Uint8Array[] = [];
@@ -24,7 +22,6 @@ async function streamToBuffer(stream: ReadableStream<Uint8Array>): Promise<Buffe
   return Buffer.concat(chunks);
 }
 
-// Export a named export for the POST method
 export async function POST(req: NextRequest) {
   if (req.method !== "POST") {
     return NextResponse.json("Only POST requests allowed", { status: 405 });
