@@ -12,6 +12,7 @@ import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import Tooltip from "@/components/Tooltip";
 import { RegisterLink, getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const { getUser } = getKindeServerSession();
@@ -31,11 +32,12 @@ export default function Home() {
           <span className='text-blue-600'>TiteL</span>{' '}
         </h1> */}
         
-        
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center max-w-10xl">
+
+<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center max-w-10xl">
   Get your work <br /> seen with{" "}
-  <span className="text-digital-blue">TiteL</span>
+    <span className="text-digital-blue">TiteL</span>
 </h1>
+
 
         <p className="mt-5 max-w-prose text-zinc-700 lg:text-lg">
           TiteL.io allows you improve your contents visibility by generating SEO
@@ -88,7 +90,7 @@ export default function Home() {
                 Select your style of text
               </span>
               <span className="mt-2 text-zinc-700">
-                Choose between News Article, Blog post or Substack.
+                Choose between news Article, blog post, substack, or video script.
               </span>
             </div>
           </li>
