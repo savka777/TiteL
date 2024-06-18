@@ -102,16 +102,16 @@ export const appRouter = router({
         });
 
         // After creating the Stripe session, update the user's token balance in the database
-        const selectedPlan = PLANS.find(
-          (plan: (typeof PLANS)[number]) =>
-            plan.price.priceIds.production === packageId,
-        );
-        if (selectedPlan) {
-          await db.user.update({
-            where: { id: userId },
-            data: { tokenBalance: { increment: selectedPlan.quota } },
-          });
-        }
+        // const selectedPlan = PLANS.find(
+        //   (plan: (typeof PLANS)[number]) =>
+        //     plan.price.priceIds.test === packageId,
+        // );
+        // if (selectedPlan) {
+        //   await db.user.update({
+        //     where: { id: userId },
+        //     data: { tokenBalance: { increment: selectedPlan.quota } },
+        //   });
+        // }
 
         return { url: stripeSession.url };
       } catch (error) {
