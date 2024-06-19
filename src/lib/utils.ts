@@ -45,7 +45,7 @@ export function constructMetadata({
       creator: "",
     },
     icons,
-    metadataBase: new URL("https://titel.vercel.app"),
+    metadataBase: new URL("https://titel.app"),
     themeColor: "#FFF",
     ...(noIndex && {
       robots: {

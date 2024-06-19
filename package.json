@@ -42,6 +42,7 @@
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.2",
     "formidable": "^3.5.1",
+    "fs": "^0.0.1-security",
     "langchain": "^0.0.153",
     "lucide-react": "^0.279.0",
     "micro": "^10.0.1",

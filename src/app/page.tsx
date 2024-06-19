@@ -18,8 +18,8 @@ export default function Home() {
   const { getUser } = getKindeServerSession();
   const user = getUser();
   const href = user
-  ? 'https://titel.vercel.app/auth-callback?origin=dashboard'
-  : 'https://titel.vercel.appy/sign-up';
+  ? 'https://titel.app/auth-callback?origin=dashboard'
+  : 'https://titel.app/sign-up';
   return (
     <>
       <MaxWidthWrapper className="mb-12 mt-28 sm:mt-30 flex flex-col items-center justify-center text-center">
