@@ -10,7 +10,7 @@ const TermsOfService = () => {
         </h1>
 
         <p className="text-gray-700 mb-4">
-          Welcome to TiteL.io! These terms and conditions outline the rules and
+          Welcome to TiteL.app! These terms and conditions outline the rules and
           regulations for the use of our service.
         </p>
 

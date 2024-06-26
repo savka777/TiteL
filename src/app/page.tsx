@@ -40,7 +40,7 @@ export default function Home() {
 
 
         <p className="mt-5 max-w-prose text-zinc-700 lg:text-lg">
-          TiteL.io allows you improve your contents visibility by generating SEO
+          TiteL.app allows you improve your contents visibility by generating SEO
           friendly titles for your content.
         </p>
 
