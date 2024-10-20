@@ -18,13 +18,13 @@ Titel is a web application designed to generate SEO-optimized titles for given t
 
 ## Technologies Used
 
-- **Next.js**: A React framework for building server-side rendered and statically generated web applications.
-- **OpenAI GPT-4o**: The language model used for generating SEO-optimized titles.
-- **Prisma**: For database management.
-- **Stripe**: For payment processing used for managing token purchases.
-- **Tailwind CSS**: CSS framework for styling the application.
-- **TRPC**: A framework for building end-to-end typesafe APIs.
-- **Radix UI**: Accessible components for web interfaces.
+- **Next.js**
+- **OpenAI GPT-4o**
+- **Prisma**
+- **Stripe**
+- **Tailwind CSS**
+- **TRPC**
+- **Radix UI**
 
 ## Installation
 
