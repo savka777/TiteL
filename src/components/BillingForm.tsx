@@ -113,10 +113,10 @@ const BillingForm = () => {
             </p>
             <Button
               className="w-full bg-digital-blue text-white"
-              onClick={() => handlePurchase("price_1PPPQVP3PzZi6quKQ6kQPDb0")}
+              onClick={() => handlePurchase("price_1PRCKwP3PzZi6quKyj5lvvQ1")}
               disabled={isLoading}
             >
-              {isLoading && selectedPackage === "price_1PPPQVP3PzZi6quKQ6kQPDb0"
+              {isLoading && selectedPackage === "price_1PRCKwP3PzZi6quKyj5lvvQ1"
                 ? "Processing..."
                 : "Buy now"}
             </Button>
